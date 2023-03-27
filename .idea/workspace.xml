@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a4493a3-a14f-4550-a9d0-f3f9cbab48d0" name="Changes" comment="test">
+    <list default="true" id="7a4493a3-a14f-4550-a9d0-f3f9cbab48d0" name="Changes" comment="Zmieniłem nazwę pliku .fxml interfejsu z &quot;main-view.fmxl&quot; na &quot;main-calendar.fxml&quot; oraz podpis aplikacji na belce tej na górze z &quot;Hello!&quot; na &quot;Calendar&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +46,9 @@
         <option name="workspaceImportEnabled" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2MyEg9bQzJQUdb4GVrs45z6i3hS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -93,7 +95,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679402441932</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Ustawiłem rozmiary okna kalendarza (940px na 800px)">
+      <created>1679905335600</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679905335600</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Zmieniłem nazwę pliku .fxml interfejsu z &quot;main-view.fmxl&quot; na &quot;main-calendar.fxml&quot; oraz podpis aplikacji na belce tej na górze z &quot;Hello!&quot; na &quot;Calendar&quot;">
+      <created>1679905987216</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679905987216</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,7 +138,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="Ustawiłem rozmiary okna kalendarza (940px na 800px)" />
+    <MESSAGE value="Zmieniłem nazwę pliku .fxml interfejsu z &quot;main-view.fmxl&quot; na &quot;main-calendar.fxml&quot; oraz podpis aplikacji na belce tej na górze z &quot;Hello!&quot; na &quot;Calendar&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zmieniłem nazwę pliku .fxml interfejsu z &quot;main-view.fmxl&quot; na &quot;main-calendar.fxml&quot; oraz podpis aplikacji na belce tej na górze z &quot;Hello!&quot; na &quot;Calendar&quot;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
