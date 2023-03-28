@@ -4,22 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4646c650-bfa4-4e88-a4a9-d609a0c9d85b" name="Changes" comment="Interfejs logowanie, rejestracje">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-j-8.0.32.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/DBUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/LooggedInController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/SignUpController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/Login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/WELCOME-ST-IVES.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/sign-up.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/team.png" afterDir="false" />
+    <list default="true" id="173d7b9f-68d5-43b7-a477-7d282d395e55" name="Changes" comment="Interfejs logowanie, rejestracje">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/DBUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/sign-up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/sign-up.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +50,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2MyNRVVUAH1t7Mnf3Rc9G2R7Ud9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -67,31 +60,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/універ/6 SEMESTR/Projekt Zespołowy/kalendarz_projektZespolowy/lib/mysql-connector-j-8.0.32.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/kalendarz_projektZespolowy",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
-}</component>
-  <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="studia.projektzespolowy.kalendarz.HelloApplication" />
-      <module name="kalendarz" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4646c650-bfa4-4e88-a4a9-d609a0c9d85b" name="Changes" comment="Interfejs logowanie, rejestracje" />
+      <changelist id="173d7b9f-68d5-43b7-a477-7d282d395e55" name="Changes" comment="" />
       <created>1678735853448</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -104,7 +88,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678798794559</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Interfejs logowanie, rejestracje">
+      <created>1679581785295</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679581785296</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Interfejs logowanie, rejestracje">
+      <created>1679581926873</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679581926873</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,5 +133,9 @@
     <MESSAGE value="Commit" />
     <MESSAGE value="Interfejs logowanie, rejestracje" />
     <option name="LAST_COMMIT_MESSAGE" value="Interfejs logowanie, rejestracje" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -10,20 +10,18 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SignUpController  implements Initializable {
-        @FXML
-        private Button button_signup;
-        @FXML
-        private Button button_log_in;
-        @FXML
-        private RadioButton rb_woman;
-        @FXML
-        private RadioButton rb_man;
-        @FXML
-        private RadioButton rb_someone_else;
-        @FXML
-        private TextField tf_username;
-        @FXML
-        private TextField tf_password;
+    @FXML
+    private Button button_signup;
+    @FXML
+    private Button button_log_in;
+    @FXML
+    private RadioButton rb_woman;
+    @FXML
+    private RadioButton rb_man;
+    @FXML
+    private TextField tf_username;
+    @FXML
+    private TextField tf_password;
 
     public SignUpController() {
 
@@ -34,7 +32,7 @@ public class SignUpController  implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ToggleGroup toggleGroup = new ToggleGroup();
         rb_woman.setToggleGroup(toggleGroup);
-        rb_someone_else.setToggleGroup(toggleGroup);
+        rb_man.setToggleGroup(toggleGroup);
 
         rb_woman.setSelected(true);
 
@@ -56,7 +54,7 @@ public class SignUpController  implements Initializable {
         button_log_in.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event,"Login.fxml","Log  in", null,null);
+                DBUtils.changeScene(event,"Login.fxml","Log  in", null);
             }
         });
     }
