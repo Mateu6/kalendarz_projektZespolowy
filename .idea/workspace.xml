@@ -4,76 +4,85 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a4493a3-a14f-4550-a9d0-f3f9cbab48d0" name="Changes" comment="Zmieniłem nazwę pliku .fxml interfejsu z &quot;main-view.fmxl&quot; na &quot;main-calendar.fxml&quot; oraz podpis aplikacji na belce tej na górze z &quot;Hello!&quot; na &quot;Calendar&quot;">
+    <list default="true" id="4646c650-bfa4-4e88-a4a9-d609a0c9d85b" name="Changes" comment="Interfejs logowanie, rejestracje">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-j-8.0.32.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/DBUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/LooggedInController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/SignUpController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/Login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/WELCOME-ST-IVES.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/sign-up.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/team.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Rebase.Settings">
-    <option name="NEW_BASE" value="feature" />
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="PARALLEL_COMPILATION" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature" />
+        <entry key="$PROJECT_DIR$" value="KaterynaBranch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="505e42cb-7e06-489b-ae0a-dd3b29869566" />
-        <option name="url" value="https://github.com/Mateu6/kalendarz_projektZespolowy.git" />
-      </UrlAndAccount>
-    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
-  <component name="ProjectId" id="2MyEg9bQzJQUdb4GVrs45z6i3hS" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2MyNRVVUAH1t7Mnf3Rc9G2R7Ud9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;last_opened_file_path&quot;: &quot;D:/універ/6 SEMESTR/Projekt Zespołowy/kalendarz_projektZespolowy/lib/mysql-connector-j-8.0.32.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
   }
 }</component>
   <component name="RunManager">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="studia.projektzespolowy.kalendarz.HelloApplication" />
       <module name="kalendarz" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="studia.projektzespolowy.kalendarz.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -82,34 +91,20 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7a4493a3-a14f-4550-a9d0-f3f9cbab48d0" name="Changes" comment="" />
-      <created>1678731532836</created>
+      <changelist id="4646c650-bfa4-4e88-a4a9-d609a0c9d85b" name="Changes" comment="Interfejs logowanie, rejestracje" />
+      <created>1678735853448</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1678731532836</updated>
+      <updated>1678735853448</updated>
     </task>
-    <task id="LOCAL-00001" summary="test">
-      <created>1679402441932</created>
+    <task id="LOCAL-00001" summary="Commit">
+      <created>1678798794559</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1679402441932</updated>
+      <updated>1678798794559</updated>
     </task>
-    <task id="LOCAL-00002" summary="Ustawiłem rozmiary okna kalendarza (940px na 800px)">
-      <created>1679905335600</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1679905335600</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Zmieniłem nazwę pliku .fxml interfejsu z &quot;main-view.fmxl&quot; na &quot;main-calendar.fxml&quot; oraz podpis aplikacji na belce tej na górze z &quot;Hello!&quot; na &quot;Calendar&quot;">
-      <created>1679905987216</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1679905987216</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,7 +118,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/feature" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -136,14 +131,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial commit" />
-    <MESSAGE value="test" />
-    <MESSAGE value="Ustawiłem rozmiary okna kalendarza (940px na 800px)" />
-    <MESSAGE value="Zmieniłem nazwę pliku .fxml interfejsu z &quot;main-view.fmxl&quot; na &quot;main-calendar.fxml&quot; oraz podpis aplikacji na belce tej na górze z &quot;Hello!&quot; na &quot;Calendar&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zmieniłem nazwę pliku .fxml interfejsu z &quot;main-view.fmxl&quot; na &quot;main-calendar.fxml&quot; oraz podpis aplikacji na belce tej na górze z &quot;Hello!&quot; na &quot;Calendar&quot;" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Commit" />
+    <MESSAGE value="Interfejs logowanie, rejestracje" />
+    <option name="LAST_COMMIT_MESSAGE" value="Interfejs logowanie, rejestracje" />
   </component>
 </project>
