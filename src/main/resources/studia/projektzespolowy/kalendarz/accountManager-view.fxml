@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studia.projektzespolowy.kalendarz.AccountManager">
+<AnchorPane fx:id="accountManagerPanel" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studia.projektzespolowy.kalendarz.AccountManager">
    <children>
       <Label layoutX="25.0" layoutY="26.0" text="User Name:" />
       <Label layoutX="25.0" layoutY="54.0" text="Password:" />
@@ -12,5 +12,7 @@
       <Label fx:id="userNameLabel" layoutX="139.0" layoutY="26.0" text="username" />
       <Label fx:id="passwordLabel" layoutX="139.0" layoutY="54.0" text="password" />
       <Button fx:id="changePasswordButton" layoutX="273.0" layoutY="50.0" mnemonicParsing="false" onAction="#onChangePasswordClick" prefHeight="26.0" prefWidth="125.0" text="Change Password" />
+      <Button fx:id="cancelButton" layoutX="342.0" layoutY="110.0" mnemonicParsing="false" onAction="#onCancelButtonClick" text="Cancel" />
+      <Button fx:id="saveButton" layoutX="273.0" layoutY="111.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save" />
    </children>
 </AnchorPane>
