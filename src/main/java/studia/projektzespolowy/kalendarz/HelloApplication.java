@@ -13,6 +13,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 940, 800);
         stage.setTitle("Calendar");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
