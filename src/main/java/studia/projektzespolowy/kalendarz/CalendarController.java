@@ -14,4 +14,8 @@ public class CalendarController {
 
     }
 
+    public void addButtonClicked()
+    {
+
+    }
 }
