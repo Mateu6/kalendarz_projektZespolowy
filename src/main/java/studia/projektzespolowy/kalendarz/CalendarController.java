@@ -1,10 +1,15 @@
 package studia.projektzespolowy.kalendarz;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -28,6 +33,10 @@ public class CalendarController implements Initializable {
 
     @FXML
     public FlowPane calendar;
+
+    @FXML
+    public GridPane calendarLabels;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -54,6 +63,8 @@ public class CalendarController implements Initializable {
     private void drawCalendar() {
         year.setText(String.valueOf(dateFocus.getYear()));
         month.setText(String.valueOf(dateFocus.getMonth()));
+        year.setFocusTraversable(false);
+        month.setFocusTraversable(false);
 
         double calendarWidth = calendar.getPrefWidth();
         double calendarHeight = calendar.getPrefHeight();
@@ -84,6 +95,7 @@ public class CalendarController implements Initializable {
                 rectangle.setHeight(rectangleHeight);
                 stackPane.getChildren().add(rectangle);
 
+
                 int calculateDate = (j + 1) + (7 * i);
 
                 if(calculateDate > dateOffSet){
@@ -101,6 +113,16 @@ public class CalendarController implements Initializable {
                     }
                 }
                 calendar.getChildren().add(stackPane);
+                EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent e) {
+                        System.out.println("dziaua");
+                        rectangle.setFill(Color.DARKSLATEBLUE);
+
+                    }
+                };
+                rectangle.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
+                rectangle.addEventHandler(MouseEvent.MOUSE_CLICKED, eventHandler);
             }
         }
     }
