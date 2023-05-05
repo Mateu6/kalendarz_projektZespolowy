@@ -136,12 +136,17 @@ public class CalendarController implements Initializable {
                         double textTranslationY = - (rectangleHeight / 2) * 0.75;
                         date.setTranslateY(textTranslationY);
                         stackPane.getChildren().add(date);
+                    } else {
+                        rectangle.setDisable(true);
                     }
                     if(today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth() && today.getDayOfMonth() == currentDate){
                         rectangle.setStroke(Color.BLUE);
                     }
                 }
-                rectangle.addEventHandler(MouseEvent.MOUSE_CLICKED, eventHandler);
+                if (!rectangle.isDisable()) {
+                    rectangle.addEventHandler(MouseEvent.MOUSE_CLICKED, eventHandler);
+                }
+
                 calendar.getChildren().add(stackPane);
 
 //                EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
