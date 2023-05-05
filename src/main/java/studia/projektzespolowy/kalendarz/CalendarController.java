@@ -1,12 +1,19 @@
 package studia.projektzespolowy.kalendarz;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
@@ -14,10 +21,14 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.ZonedDateTime;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CalendarController implements Initializable {
@@ -36,6 +47,8 @@ public class CalendarController implements Initializable {
 
     @FXML
     public GridPane calendarLabels;
+
+    private ObservableList<CalendarEvents> tvObservableList = FXCollections.observableArrayList();
 
 
     @Override
@@ -86,6 +99,21 @@ public class CalendarController implements Initializable {
                 StackPane stackPane = new StackPane();
 
                 Rectangle rectangle = new Rectangle();
+
+                EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+
+                        CalendarEvents dialog = new CalendarEvents();
+                        Optional<String> result = dialog.showAndWait();
+
+                        if (result.isPresent()) {
+                            String eventDetails = result.get();
+
+                            // Do something with the event details (e.g. display them in the UI, add them to a database, etc.)
+                        }
+                    }
+                };
                 rectangle.setFill(Color.TRANSPARENT);
                 rectangle.setStroke(Color.GRAY);
                 rectangle.setStrokeWidth(strokeWidth);
@@ -94,6 +122,7 @@ public class CalendarController implements Initializable {
                 double rectangleHeight = (calendarHeight/6) - strokeWidth - spacingV;
                 rectangle.setHeight(rectangleHeight);
                 stackPane.getChildren().add(rectangle);
+
 
 
                 int calculateDate = (j + 1) + (7 * i);
@@ -112,17 +141,22 @@ public class CalendarController implements Initializable {
                         rectangle.setStroke(Color.BLUE);
                     }
                 }
-                calendar.getChildren().add(stackPane);
-                EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent e) {
-                        System.out.println("dziaua");
-                        rectangle.setFill(Color.DARKSLATEBLUE);
-
-                    }
-                };
-                rectangle.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
                 rectangle.addEventHandler(MouseEvent.MOUSE_CLICKED, eventHandler);
+                calendar.getChildren().add(stackPane);
+
+//                EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+//                    @Override
+//                    public void handle(MouseEvent e) {
+//
+//                        System.out.println("dziaua"); //for testing purpose
+//                        rectangle.setFill(Color.DARKSLATEBLUE);
+//                        rectangle.setFill(null);
+//                            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add-event-dialog.fxml"));
+//
+//
+//                    }
+//                };
+
             }
         }
     }
