@@ -31,7 +31,7 @@ public class CalendarController implements Initializable {
     private TextField year;
 
     @FXML
-    public ComboBox month;
+    public TextField month;
 
     @FXML
     public FlowPane calendar;
@@ -66,7 +66,7 @@ public class CalendarController implements Initializable {
     }
 
     @FXML
-    private void setMonthMenuButton() {
+    private void drawMonthsList() {
 
         ObservableList<String> monthsList = FXCollections.observableArrayList(String.valueOf(dateFocus.getMonth()));
         ComboBox<String> month = new ComboBox<>(monthsList);
@@ -89,9 +89,21 @@ public class CalendarController implements Initializable {
 //            month.getItems().add(monthMenuItem);
         //}
     }
+    EventHandler<MouseEvent> eventHandler = mouseEvent -> {
+
+        CalendarEvents dialog = new CalendarEvents();
+        Optional<String> result = dialog.showAndWait();
+
+        if (result.isPresent()) {
+            String eventDetails = result.get();
+
+            // Do something with the event details (e.g. display them in the UI, add them to a database, etc.)
+        }
+    };
+
     private void drawCalendar() {
         year.setText(String.valueOf(dateFocus.getYear()));
-        month.setValue(String.valueOf(dateFocus.getMonth()));
+        month.setText(String.valueOf(dateFocus.getMonth()));
         year.setFocusTraversable(false);
         month.setFocusTraversable(false);
 
@@ -116,20 +128,7 @@ public class CalendarController implements Initializable {
                 StackPane stackPane = new StackPane();
                 Rectangle rectangle = new Rectangle();
 
-                EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
 
-                        CalendarEvents dialog = new CalendarEvents();
-                        Optional<String> result = dialog.showAndWait();
-
-                        if (result.isPresent()) {
-                            String eventDetails = result.get();
-
-                            // Do something with the event details (e.g. display them in the UI, add them to a database, etc.)
-                        }
-                    }
-                };
                 rectangle.setFill(Color.TRANSPARENT);
                 rectangle.setStroke(Color.GRAY);
                 rectangle.setStrokeWidth(strokeWidth);

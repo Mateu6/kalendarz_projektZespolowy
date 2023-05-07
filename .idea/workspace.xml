@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Drobne zmiany - nie da się klikać na kafelki, które nie mają daty.">
+    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Próba zrobienia ComboBoxa który wyświetla miesiące i umożliwia wybór miesiąca">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683279567882</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Próba zrobienia ComboBoxa który wyświetla miesiące i umożliwia wybór miesiąca">
+      <created>1683465367926</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683465367926</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,7 +148,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feature/calendarEvent" />
+                        <option value="origin/KaterynaBranch" />
                       </list>
                     </value>
                   </entry>
@@ -160,6 +166,7 @@
     <MESSAGE value="zaznacznie dnia miesiąca i dodawanie do niego wydarzenia" />
     <MESSAGE value="Dodałem funkcjonalność kontrolki 'rectangle', która pozwala na otworzenie okna, które umożliwi dodanie eventu do kalendarza" />
     <MESSAGE value="Drobne zmiany - nie da się klikać na kafelki, które nie mają daty." />
-    <option name="LAST_COMMIT_MESSAGE" value="Drobne zmiany - nie da się klikać na kafelki, które nie mają daty." />
+    <MESSAGE value="Próba zrobienia ComboBoxa który wyświetla miesiące i umożliwia wybór miesiąca" />
+    <option name="LAST_COMMIT_MESSAGE" value="Próba zrobienia ComboBoxa który wyświetla miesiące i umożliwia wybór miesiąca" />
   </component>
 </project>
