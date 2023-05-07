@@ -17,7 +17,9 @@ public class CalendarEvents extends Dialog<String> {
         TextField startTimeField = new TextField();
         Label endTimeLabel = new Label("End Time:");
         TextField endTimeField = new TextField();
-        vbox.getChildren().addAll(eventNameField, startTimeLabel, startTimeField, endTimeLabel, endTimeField);
+        Label markerColourLabel = new Label("Marker colour:");
+        TextField markerColourField = new TextField();
+        vbox.getChildren().addAll(eventNameField, startTimeLabel, startTimeField, endTimeLabel, endTimeField, markerColourLabel, markerColourField);
 
         // Add buttons to the dialog
         ButtonType addButtonType = new ButtonType("Add", ButtonBar.ButtonData.OK_DONE);

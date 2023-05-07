@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="modyfikacje okna">
+    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Drobne zmiany - nie da się klikać na kafelki, które nie mają daty.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +18,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -24,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/calendarBackend" />
       </map>
     </option>
   </component>
@@ -105,7 +107,28 @@
       <option name="project" value="LOCAL" />
       <updated>1682354742047</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="zaznacznie dnia miesiąca i dodawanie do niego wydarzenia">
+      <created>1682885178198</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682885178198</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Dodałem funkcjonalność kontrolki 'rectangle', która pozwala na otworzenie okna, które umożliwi dodanie eventu do kalendarza">
+      <created>1683279208230</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683279208230</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Drobne zmiany - nie da się klikać na kafelki, które nie mają daty.">
+      <created>1683279567882</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683279567882</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,7 +142,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feature/calendarBackend" />
+                        <option value="feature/calendarEvent" />
                       </list>
                     </value>
                   </entry>
@@ -134,6 +157,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="działające wyświetlenie miesiąca i roku, dodano 2 klasy(CalendarActivity i CalendarController)" />
     <MESSAGE value="modyfikacje okna" />
-    <option name="LAST_COMMIT_MESSAGE" value="modyfikacje okna" />
+    <MESSAGE value="zaznacznie dnia miesiąca i dodawanie do niego wydarzenia" />
+    <MESSAGE value="Dodałem funkcjonalność kontrolki 'rectangle', która pozwala na otworzenie okna, które umożliwi dodanie eventu do kalendarza" />
+    <MESSAGE value="Drobne zmiany - nie da się klikać na kafelki, które nie mają daty." />
+    <option name="LAST_COMMIT_MESSAGE" value="Drobne zmiany - nie da się klikać na kafelki, które nie mają daty." />
   </component>
 </project>

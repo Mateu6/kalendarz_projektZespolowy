@@ -5,14 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
@@ -21,13 +15,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 
-import java.io.IOException;
 import java.net.URL;
-import java.time.ZonedDateTime;
+import java.time.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -40,7 +31,7 @@ public class CalendarController implements Initializable {
     private TextField year;
 
     @FXML
-    private TextField month;
+    public ComboBox month;
 
     @FXML
     public FlowPane calendar;
@@ -48,6 +39,8 @@ public class CalendarController implements Initializable {
     @FXML
     public GridPane calendarLabels;
 
+    @FXML
+    public GridPane calendarControls;
     private ObservableList<CalendarEvents> tvObservableList = FXCollections.observableArrayList();
 
 
@@ -72,12 +65,36 @@ public class CalendarController implements Initializable {
         drawCalendar();
     }
 
+    @FXML
+    private void setMonthMenuButton() {
 
+        ObservableList<String> monthsList = FXCollections.observableArrayList(String.valueOf(dateFocus.getMonth()));
+        ComboBox<String> month = new ComboBox<>(monthsList);
+
+        month.setOnAction(event -> {
+            String selectedMonth = month.getItems().toString().toUpperCase();
+            System.out.println("Selected month: " + selectedMonth);
+        });
+
+            calendarControls.getChildren().add(month);
+//            monthMenuItem.setOnAction(event -> {
+//                // Get the selected month from the menu item
+//                Month selectedMonth = Month.valueOf(monthMenuItem.getText().toUpperCase());
+//
+//                // Update the calendar to display the selected month
+//                LocalDate newDate = LocalDate.of(dateFocus.getYear(), selectedMonth, 1);
+//                drawCalendar();
+//            });
+//
+//            month.getItems().add(monthMenuItem);
+        //}
+    }
     private void drawCalendar() {
         year.setText(String.valueOf(dateFocus.getYear()));
-        month.setText(String.valueOf(dateFocus.getMonth()));
+        month.setValue(String.valueOf(dateFocus.getMonth()));
         year.setFocusTraversable(false);
         month.setFocusTraversable(false);
+
 
         double calendarWidth = calendar.getPrefWidth();
         double calendarHeight = calendar.getPrefHeight();
@@ -97,7 +114,6 @@ public class CalendarController implements Initializable {
             for(int j=0; j<7; j++){
 
                 StackPane stackPane = new StackPane();
-
                 Rectangle rectangle = new Rectangle();
 
                 EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
@@ -123,8 +139,6 @@ public class CalendarController implements Initializable {
                 rectangle.setHeight(rectangleHeight);
                 stackPane.getChildren().add(rectangle);
 
-
-
                 int calculateDate = (j + 1) + (7 * i);
 
                 if(calculateDate > dateOffSet){
@@ -141,26 +155,17 @@ public class CalendarController implements Initializable {
                     }
                     if(today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth() && today.getDayOfMonth() == currentDate){
                         rectangle.setStroke(Color.BLUE);
+                        rectangle.setFill(Color.DARKGRAY);
                     }
-                }
+                } else {
+                    rectangle.setDisable(true);}
+
                 if (!rectangle.isDisable()) {
                     rectangle.addEventHandler(MouseEvent.MOUSE_CLICKED, eventHandler);
                 }
 
                 calendar.getChildren().add(stackPane);
 
-//                EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
-//                    @Override
-//                    public void handle(MouseEvent e) {
-//
-//                        System.out.println("dziaua"); //for testing purpose
-//                        rectangle.setFill(Color.DARKSLATEBLUE);
-//                        rectangle.setFill(null);
-//                            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add-event-dialog.fxml"));
-//
-//
-//                    }
-//                };
 
             }
         }
