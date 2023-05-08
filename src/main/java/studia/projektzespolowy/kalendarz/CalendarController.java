@@ -31,7 +31,7 @@ public class CalendarController implements Initializable {
 
     @FXML
     public void addButtonClicked(ActionEvent ignoredEvent) throws IOException {
-        Add.displayAddWindow("Add Window");
+        Add.displayAddWindow();
         /*try {
             System.out.println("User is adding an event ...");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AddWindow.fxml"));
