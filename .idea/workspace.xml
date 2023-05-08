@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Funkcja drawMonthsList w klasie CalendarController pozwala na zmianę wyświetlanego miesiąca wybierając go z listy.">
+    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683510850771</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna">
+      <created>1683511258394</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683511258394</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -183,6 +189,7 @@
     <MESSAGE value="Próba zrobienia ComboBoxa który wyświetla miesiące i umożliwia wybór miesiąca" />
     <MESSAGE value="Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu" />
     <MESSAGE value="Funkcja drawMonthsList w klasie CalendarController pozwala na zmianę wyświetlanego miesiąca wybierając go z listy." />
-    <option name="LAST_COMMIT_MESSAGE" value="Funkcja drawMonthsList w klasie CalendarController pozwala na zmianę wyświetlanego miesiąca wybierając go z listy." />
+    <MESSAGE value="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna" />
   </component>
 </project>

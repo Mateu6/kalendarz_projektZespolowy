@@ -3,8 +3,13 @@ package studia.projektzespolowy.kalendarz;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
+import java.time.ZonedDateTime;
+
 public class CalendarEvents extends Dialog<String> {
     public CalendarEvents() {
+        ZonedDateTime startTime = ZonedDateTime.now();
+        ZonedDateTime endTime = ZonedDateTime.now().withHour(startTime.getHour()+1);
+
         setTitle("Add Event");
 
         // Create the dialog content
@@ -15,8 +20,10 @@ public class CalendarEvents extends Dialog<String> {
         TextField eventNameField = new TextField();
         Label startTimeLabel = new Label("Start Time:");
         TextField startTimeField = new TextField();
+        startTimeField.setText(startTime.toString().toUpperCase());
         Label endTimeLabel = new Label("End Time:");
         TextField endTimeField = new TextField();
+        endTimeField.setText(endTime.toString().toUpperCase());
         Label markerColourLabel = new Label("Marker colour:");
         TextField markerColourField = new TextField();
         vbox.getChildren().addAll(eventNameField, startTimeLabel, startTimeField, endTimeLabel, endTimeField, markerColourLabel, markerColourField);
@@ -31,12 +38,12 @@ public class CalendarEvents extends Dialog<String> {
         // Handle the user's input when the "Add" button is clicked
         setResultConverter(buttonType -> {
             if (buttonType == addButtonType) {
-                String eventName = eventNameField.getText();
-                String startTime = startTimeField.getText();
-                String endTime = endTimeField.getText();
+                String eventNameInfo = eventNameField.getText();
+                String startTimeInfo = startTimeField.getText();
+                String endTimeInfo = endTimeField.getText();
 
                 // Do something with the event data (e.g. add it to a list, save it to a file, etc.)
-                return eventName + ", " + startTime + " - " + endTime;
+                return eventNameInfo + ", " + startTimeInfo + " - " + endTimeInfo;
             }
 
             return null;
