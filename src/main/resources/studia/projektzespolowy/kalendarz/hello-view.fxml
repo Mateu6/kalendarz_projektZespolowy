@@ -56,7 +56,7 @@
       </GridPane.margin>
     </Button>
     <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#forwardOneMonth" prefHeight="26.0" prefWidth="50.0" text="&gt;" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-      <MenuButton fx:id="monthPicker" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#drawMonthsList" onMouseReleased="#drawMonthsList" prefWidth="176.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <MenuButton fx:id="monthPicker" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseReleased="#drawMonthsList" prefWidth="176.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
   </GridPane>
   <ScrollPane layoutX="-8.0" prefHeight="812.0" prefWidth="261.0" />
    <FlowPane fx:id="calendar" layoutX="255.0" layoutY="270.0" prefHeight="542.0" prefWidth="700" />

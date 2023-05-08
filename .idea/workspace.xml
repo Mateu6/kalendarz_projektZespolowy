@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu">
+    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Funkcja drawMonthsList w klasie CalendarController pozwala na zmianę wyświetlanego miesiąca wybierając go z listy.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" afterDir="false" />
@@ -141,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683501430278</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Funkcja drawMonthsList w klasie CalendarController pozwala na zmianę wyświetlanego miesiąca wybierając go z listy.">
+      <created>1683510850771</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683510850771</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,7 +162,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/KaterynaBranch" />
+                        <option value="feature/calendarEvent" />
                       </list>
                     </value>
                   </entry>
@@ -175,6 +182,7 @@
     <MESSAGE value="Drobne zmiany - nie da się klikać na kafelki, które nie mają daty." />
     <MESSAGE value="Próba zrobienia ComboBoxa który wyświetla miesiące i umożliwia wybór miesiąca" />
     <MESSAGE value="Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu" />
+    <MESSAGE value="Funkcja drawMonthsList w klasie CalendarController pozwala na zmianę wyświetlanego miesiąca wybierając go z listy." />
+    <option name="LAST_COMMIT_MESSAGE" value="Funkcja drawMonthsList w klasie CalendarController pozwala na zmianę wyświetlanego miesiąca wybierając go z listy." />
   </component>
 </project>

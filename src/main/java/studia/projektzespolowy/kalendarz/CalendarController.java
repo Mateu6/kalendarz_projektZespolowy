@@ -7,7 +7,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
@@ -26,7 +25,6 @@ public class CalendarController implements Initializable {
 
     ZonedDateTime dateFocus;
     ZonedDateTime today;
-    ZonedDateTime monthAltered;
 
     @FXML
     private TextField year;
@@ -73,8 +71,7 @@ public class CalendarController implements Initializable {
                 menuItem.setOnAction(event -> {
                     // Update the MenuButton text to show the selected month
                     monthPicker.setText(month.toString());
-                    monthAltered = dateFocus.withMonth(month.getValue());
-                    dateFocus = dateFocus.withMonth(monthAltered.getMonthValue());
+                    dateFocus = dateFocus.withMonth(month.getValue());
                     calendar.getChildren().clear();
                     drawCalendar();
                 });
