@@ -31,7 +31,8 @@ public class CalendarController implements Initializable {
 
     @FXML
     public void addButtonClicked(ActionEvent ignoredEvent) throws IOException {
-        try {
+        Add.displayAddWindow("Add Window");
+        /*try {
             System.out.println("User is adding an event ...");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AddWindow.fxml"));
             Parent root = loader.load();
@@ -44,19 +45,8 @@ public class CalendarController implements Initializable {
         } catch (IOException e) {
             System.out.println("Error loading AddWindow.fxml: " + e.getMessage());
             e.printStackTrace();
-        }
+        }*/
     }
-
-
-    @FXML
-    private ColorPicker ColorPicker;
-
-    @FXML
-    private Button ConfirmButton;
-
-    @FXML
-    private TextField EventNameLabel;
-
 
     ZonedDateTime dateFocus;
     ZonedDateTime today;
