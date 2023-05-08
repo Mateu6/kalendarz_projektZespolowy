@@ -26,19 +26,16 @@ public class CalendarController implements Initializable {
 
     ZonedDateTime dateFocus;
     ZonedDateTime today;
+    ZonedDateTime monthAltered;
 
     @FXML
     private TextField year;
-
     @FXML
-    public TextField month;
-
+    public MenuButton monthPicker;
     @FXML
     public FlowPane calendar;
-
     @FXML
     public GridPane calendarLabels;
-
     @FXML
     public GridPane calendarControls;
     private ObservableList<CalendarEvents> tvObservableList = FXCollections.observableArrayList();
@@ -68,26 +65,22 @@ public class CalendarController implements Initializable {
     @FXML
     private void drawMonthsList() {
 
-        ObservableList<String> monthsList = FXCollections.observableArrayList(String.valueOf(dateFocus.getMonth()));
-        ComboBox<String> month = new ComboBox<>(monthsList);
+        if(monthPicker.getItems().isEmpty()) {
 
-        month.setOnAction(event -> {
-            String selectedMonth = month.getItems().toString().toUpperCase();
-            System.out.println("Selected month: " + selectedMonth);
-        });
+            for (Month month : Month.values()) {
+                MenuItem menuItem = new MenuItem(month.toString());
+                monthPicker.getItems().add(menuItem);
+                menuItem.setOnAction(event -> {
+                    // Update the MenuButton text to show the selected month
+                    monthPicker.setText(month.toString());
+                    monthAltered = dateFocus.withMonth(month.getValue());
+                    dateFocus = dateFocus.withMonth(monthAltered.getMonthValue());
+                    calendar.getChildren().clear();
+                    drawCalendar();
+                });
+            }
+        }
 
-            calendarControls.getChildren().add(month);
-//            monthMenuItem.setOnAction(event -> {
-//                // Get the selected month from the menu item
-//                Month selectedMonth = Month.valueOf(monthMenuItem.getText().toUpperCase());
-//
-//                // Update the calendar to display the selected month
-//                LocalDate newDate = LocalDate.of(dateFocus.getYear(), selectedMonth, 1);
-//                drawCalendar();
-//            });
-//
-//            month.getItems().add(monthMenuItem);
-        //}
     }
     EventHandler<MouseEvent> eventHandler = mouseEvent -> {
 
@@ -102,10 +95,12 @@ public class CalendarController implements Initializable {
     };
 
     private void drawCalendar() {
-        year.setText(String.valueOf(dateFocus.getYear()));
-        month.setText(String.valueOf(dateFocus.getMonth()));
+
         year.setFocusTraversable(false);
-        month.setFocusTraversable(false);
+        monthPicker.setFocusTraversable(false);
+
+        year.setText(String.valueOf(dateFocus.getYear()));
+        monthPicker.setText(String.valueOf(dateFocus.getMonth()));
 
 
         double calendarWidth = calendar.getPrefWidth();
@@ -120,7 +115,7 @@ public class CalendarController implements Initializable {
         if(dateFocus.getYear() % 4 !=0 && monthMaxDate == 29){
             monthMaxDate = 28;
         }
-        int dateOffSet = ZonedDateTime.of(dateFocus.getYear(), dateFocus.getMonthValue(), 1,0,0,0,0,dateFocus.getZone()).getDayOfWeek().getValue();
+           int dateOffSet = ZonedDateTime.of(dateFocus.getYear(), dateFocus.getMonthValue(), 1, 0, 0, 0, 0, dateFocus.getZone()).getDayOfWeek().getValue();
 
         for(int i=0; i<6; i++){
             for(int j=0; j<7; j++){

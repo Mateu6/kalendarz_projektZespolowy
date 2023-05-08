@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Próba zrobienia ComboBoxa który wyświetla miesiące i umożliwia wybór miesiąca">
+    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" afterDir="false" />
@@ -134,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683465367926</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu">
+      <created>1683501430278</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683501430278</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,6 +174,7 @@
     <MESSAGE value="Dodałem funkcjonalność kontrolki 'rectangle', która pozwala na otworzenie okna, które umożliwi dodanie eventu do kalendarza" />
     <MESSAGE value="Drobne zmiany - nie da się klikać na kafelki, które nie mają daty." />
     <MESSAGE value="Próba zrobienia ComboBoxa który wyświetla miesiące i umożliwia wybór miesiąca" />
-    <option name="LAST_COMMIT_MESSAGE" value="Próba zrobienia ComboBoxa który wyświetla miesiące i umożliwia wybór miesiąca" />
+    <MESSAGE value="Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu" />
   </component>
 </project>
