@@ -3,9 +3,11 @@ package studia.projektzespolowy.kalendarz;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
@@ -14,6 +16,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Window;
 
 
 import java.net.URL;
@@ -26,6 +29,7 @@ public class CalendarController implements Initializable {
     ZonedDateTime dateFocus;
     ZonedDateTime today;
 
+    private ContextMenu contextMenu;
     @FXML
     private TextField year;
     @FXML
@@ -79,17 +83,7 @@ public class CalendarController implements Initializable {
         }
 
     }
-    EventHandler<MouseEvent> eventHandler = mouseEvent -> {
-
-        CalendarEvents dialog = new CalendarEvents();
-        Optional<String> result = dialog.showAndWait();
-
-        if (result.isPresent()) {
-            String eventDetails = result.get();
-
-            // Do something with the event details (e.g. display them in the UI, add them to a database, etc.)
-        }
-    };
+    CalendarEvents eventPopup = new CalendarEvents();
 
     private void drawCalendar() {
 
@@ -152,9 +146,18 @@ public class CalendarController implements Initializable {
                     rectangle.setDisable(true);}
 
                 if (!rectangle.isDisable()) {
-                    rectangle.addEventHandler(MouseEvent.MOUSE_CLICKED, eventHandler);
-                }
+                    rectangle.setOnMouseClicked(event -> {
+                        // Determine the x and y coordinates of the click relative to the screen
+                        double x = event.getScreenX();
+                        double y = event.getScreenY();
 
+                        // Show the popup at the specified location
+                        eventPopup.show(rectangle.getScene().getWindow(), x, y);
+                    });
+                }
+                if(rectangle.isDisable()) {
+                    rectangle.setFill(Color.LIGHTGRAY);
+                }
                 calendar.getChildren().add(stackPane);
 
 
