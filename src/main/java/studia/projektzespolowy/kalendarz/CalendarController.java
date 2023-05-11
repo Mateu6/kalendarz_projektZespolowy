@@ -3,6 +3,7 @@ package studia.projektzespolowy.kalendarz;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+//import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
@@ -28,6 +29,9 @@ public class CalendarController implements Initializable {
 
     @FXML
     public FlowPane calendar;
+
+    @FXML
+    //public FlowPane weekDays;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -69,6 +73,19 @@ public class CalendarController implements Initializable {
         }
         int dateOffSet = ZonedDateTime.of(dateFocus.getYear(), dateFocus.getMonthValue(), 1,0,0,0,0,dateFocus.getZone()).getDayOfWeek().getValue();
 
+
+
+       /* for(int j=0; j<1; j++) {
+            StackPane stackPane1 = new StackPane();
+            String[] daysOfWeek = {"Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"};
+            for (int i = 0; i < 7; i++) {
+                Label label = new Label();
+                label.setPrefWidth(calendarWidth / 7);
+                label.setText(daysOfWeek[i]);
+                stackPane1.getChildren().add(label);
+            }
+            weekDays.getChildren().add(stackPane1);
+        }*/
         for(int i=0; i<6; i++){
             for(int j=0; j<7; j++){
 
@@ -98,6 +115,11 @@ public class CalendarController implements Initializable {
                     }
                     if(today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth() && today.getDayOfMonth() == currentDate){
                         rectangle.setStroke(Color.BLUE);
+                    }
+
+                    if(j==0 || j==6)
+                    {
+                        rectangle.setFill(Color.GRAY);
                     }
                 }
                 calendar.getChildren().add(stackPane);
