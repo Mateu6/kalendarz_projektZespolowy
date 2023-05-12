@@ -4,23 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="173d7b9f-68d5-43b7-a477-7d282d395e55" name="Changes" comment="Interfejs logowanie, rejestracje">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/DBUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/sign-up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/sign-up.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/add-event-dialog.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CompilerWorkspaceConfiguration">
-    <option name="PARALLEL_COMPILATION" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -33,10 +26,9 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="KaterynaBranch" />
+        <entry key="$PROJECT_DIR$" value="feature/calendarBackend" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -52,7 +44,7 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectId" id="2MyNRVVUAH1t7Mnf3Rc9G2R7Ud9" />
+  <component name="ProjectId" id="2OqBJZXH8pJfdMRjjd8S4wHNeRZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -60,49 +52,111 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/kalendarz_projektZespolowy",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="studia.projektzespolowy.kalendarz.HelloApplication" />
+      <module name="kalendarz" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="kalendarz_projektZespolowy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="kalendarz_projektZespolowy" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="173d7b9f-68d5-43b7-a477-7d282d395e55" name="Changes" comment="" />
-      <created>1678735853448</created>
+      <changelist id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="" />
+      <created>1682278160537</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1678735853448</updated>
+      <updated>1682278160537</updated>
     </task>
-    <task id="LOCAL-00001" summary="Commit">
-      <created>1678798794559</created>
+    <task id="LOCAL-00001" summary="działające wyświetlenie miesiąca i roku, dodano 2 klasy(CalendarActivity i CalendarController)">
+      <created>1682279428461</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1678798794559</updated>
+      <updated>1682279428461</updated>
     </task>
-    <task id="LOCAL-00002" summary="Interfejs logowanie, rejestracje">
-      <created>1679581785295</created>
+    <task id="LOCAL-00002" summary="modyfikacje okna">
+      <created>1682354742045</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1679581785296</updated>
+      <updated>1682354742047</updated>
     </task>
-    <task id="LOCAL-00003" summary="Interfejs logowanie, rejestracje">
-      <created>1679581926873</created>
+    <task id="LOCAL-00003" summary="zaznacznie dnia miesiąca i dodawanie do niego wydarzenia">
+      <created>1682885178198</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1679581926873</updated>
+      <updated>1682885178198</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Dodałem funkcjonalność kontrolki 'rectangle', która pozwala na otworzenie okna, które umożliwi dodanie eventu do kalendarza">
+      <created>1683279208230</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683279208230</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Drobne zmiany - nie da się klikać na kafelki, które nie mają daty.">
+      <created>1683279567882</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683279567882</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Próba zrobienia ComboBoxa który wyświetla miesiące i umożliwia wybór miesiąca">
+      <created>1683465367926</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683465367926</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu">
+      <created>1683501430278</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683501430278</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Funkcja drawMonthsList w klasie CalendarController pozwala na zmianę wyświetlanego miesiąca wybierając go z listy.">
+      <created>1683510850771</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683510850771</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna">
+      <created>1683511258394</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683511258394</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,7 +170,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="feature/calendarEvent" />
                       </list>
                     </value>
                   </entry>
@@ -129,13 +183,15 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Commit" />
-    <MESSAGE value="Interfejs logowanie, rejestracje" />
-    <option name="LAST_COMMIT_MESSAGE" value="Interfejs logowanie, rejestracje" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <MESSAGE value="działające wyświetlenie miesiąca i roku, dodano 2 klasy(CalendarActivity i CalendarController)" />
+    <MESSAGE value="modyfikacje okna" />
+    <MESSAGE value="zaznacznie dnia miesiąca i dodawanie do niego wydarzenia" />
+    <MESSAGE value="Dodałem funkcjonalność kontrolki 'rectangle', która pozwala na otworzenie okna, które umożliwi dodanie eventu do kalendarza" />
+    <MESSAGE value="Drobne zmiany - nie da się klikać na kafelki, które nie mają daty." />
+    <MESSAGE value="Próba zrobienia ComboBoxa który wyświetla miesiące i umożliwia wybór miesiąca" />
+    <MESSAGE value="Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu" />
+    <MESSAGE value="Funkcja drawMonthsList w klasie CalendarController pozwala na zmianę wyświetlanego miesiąca wybierając go z listy." />
+    <MESSAGE value="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna" />
   </component>
 </project>

@@ -7,12 +7,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Main extends Application {
+public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Calendar.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
         stage.setTitle("Calendar");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
@@ -21,4 +22,3 @@ public class Main extends Application {
         launch();
     }
 }
-
