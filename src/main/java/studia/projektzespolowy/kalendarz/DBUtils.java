@@ -54,7 +54,7 @@ public class DBUtils {
                 alert.setContentText("You cannot use this username.");
                 alert.show();
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO users (username, password, sex VALUES (?, ?, ?)");
+                psInsert = connection.prepareStatement("INSERT INTO users (username, password, sex) VALUES (?, ?, ?)");
                 psInsert.setString(1, username);
                 psInsert.setString(2, password);
                 psInsert.setString(3, sex);
@@ -117,7 +117,7 @@ public class DBUtils {
                     String retrievedPassword = resultSet.getString("password");
                     String retrievedSex = resultSet.getString("sex");
                     if(retrievedPassword.equals(password)){
-                        changeScene(event,"hello-view.fxml", username, retrievedSex);
+                        changeScene(event,"loggend.fxml", username, retrievedSex);
                     }else{
                         System.out.println("Password did not match!");
                         Alert alert = new Alert(Alert.AlertType.ERROR);
