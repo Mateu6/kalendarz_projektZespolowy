@@ -7,13 +7,16 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Window;
@@ -40,7 +43,6 @@ public class CalendarController implements Initializable {
     public GridPane calendarLabels;
     @FXML
     public GridPane calendarControls;
-    private ObservableList<CalendarEvents> tvObservableList = FXCollections.observableArrayList();
 
 
     @Override
@@ -113,8 +115,11 @@ public class CalendarController implements Initializable {
 
                 StackPane stackPane = new StackPane();
                 Rectangle rectangle = new Rectangle();
+                Rectangle eventRectangle = new Rectangle();
+                Circle dot = new Circle();
+                VBox eventContainer = new VBox();
 
-
+                //day in the month tile
                 rectangle.setFill(Color.TRANSPARENT);
                 rectangle.setStroke(Color.GRAY);
                 rectangle.setStrokeWidth(strokeWidth);
@@ -122,7 +127,16 @@ public class CalendarController implements Initializable {
                 rectangle.setWidth(rectangleWidth);
                 double rectangleHeight = (calendarHeight/6) - strokeWidth - spacingV;
                 rectangle.setHeight(rectangleHeight);
-                stackPane.getChildren().add(rectangle);
+                stackPane.getChildren().add(rectangle); //shows the calendar tiles
+
+                //day in the month with event attached to it tile
+                dot.setFill(Color.TRANSPARENT);
+                dot.setStroke(Color.YELLOW);
+                dot.setStrokeWidth(strokeWidth);
+                dot.setRadius(10);
+                eventContainer.setAlignment(Pos.TOP_RIGHT);
+                eventContainer.getChildren().addAll(eventRectangle, dot); //is ready to replace a given tile
+
 
                 int calculateDate = (j + 1) + (7 * i);
 
