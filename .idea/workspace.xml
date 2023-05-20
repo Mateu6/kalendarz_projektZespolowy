@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="173d7b9f-68d5-43b7-a477-7d282d395e55" name="Changes" comment="Code  działanie okna logowanie i rejestracji">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/DBUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +24,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="feature/CalendarWeek" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="KaterynaBranch" />
+        <entry key="$PROJECT_DIR$" value="feature/CalendarWeek" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,7 +62,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/CalendarWeek",
+    "git-widget-placeholder": "develop",
     "last_opened_file_path": "D:/kalendarz_projektZespolowy",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
@@ -141,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679934757117</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Naprawiłem błąd z month pickerem (hello-view.fxml) był nieaktualny z jakiegoś powodu. Zmieniłem też połączenie z bazą danych na swoje (każdy musi zmienić u siebie pod swój serwer)">
+      <created>1684583776607</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684583776607</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -177,7 +185,8 @@
     <MESSAGE value="Commit" />
     <MESSAGE value="Interfejs logowanie, rejestracje" />
     <MESSAGE value="Code  działanie okna logowanie i rejestracji" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code  działanie okna logowanie i rejestracji" />
+    <MESSAGE value="Naprawiłem błąd z month pickerem (hello-view.fxml) był nieaktualny z jakiegoś powodu. Zmieniłem też połączenie z bazą danych na swoje (każdy musi zmienić u siebie pod swój serwer)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Naprawiłem błąd z month pickerem (hello-view.fxml) był nieaktualny z jakiegoś powodu. Zmieniłem też połączenie z bazą danych na swoje (każdy musi zmienić u siebie pod swój serwer)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
