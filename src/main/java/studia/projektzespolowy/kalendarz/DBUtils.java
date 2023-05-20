@@ -14,13 +14,15 @@ import java.sql.*;
 public class DBUtils {
     public static void changeScene(ActionEvent event, String fxmlFile, String username, String sex) {
         Parent root = null;
+        Stage stage = new Stage();
 
         if (username != null && sex != null) {
             try {
-                FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
-                root = loader.load();
-                LooggedInController looggedInController = loader.getController();
-                looggedInController.setUserInformation();
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+                Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
+                stage.setTitle("Calendar");
+                stage.setScene(scene);
+                stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -31,7 +33,8 @@ public class DBUtils {
                 e.printStackTrace();
             }
         }
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        assert root != null;
         stage.setScene(new Scene(root, 320, 450));
         stage.show();
     }
@@ -43,7 +46,7 @@ public class DBUtils {
         ResultSet resultSet = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login-user", "root", "root");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kalendarz_zesp", "root", "root");
             psCheckExists = connection.prepareStatement("SELECT * FROM users WHERE username =  ?");
             psCheckExists.setString(1, username);
             resultSet = psCheckExists.executeQuery();
@@ -102,7 +105,7 @@ public class DBUtils {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login-user", "root", "root");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Kalendarz_zesp", "root", "root");
             preparedStatement = connection.prepareStatement("SELECT password,sex FROM users WHERE username = ?");
             preparedStatement.setString(1, username);
             resultSet = preparedStatement.executeQuery();
