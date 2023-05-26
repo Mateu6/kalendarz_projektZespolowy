@@ -22,6 +22,8 @@ import java.time.ZonedDateTime;
         private  Button addButton;
         private  Button cancelButton;
 
+        private CalendarController calendarController;
+
         public CalendarEvents() {
             super();
 
@@ -61,15 +63,15 @@ import java.time.ZonedDateTime;
         private String name;
         private LocalDate date;
 
-        public CalendarEvents(String name, LocalDate date) {
-            this.name = name;
-            this.date = date;
-        }
         private void addEvent() {
             String name = nameField.getText();
             LocalDate date = datePicker.getValue();
-            CalendarEvents event = new CalendarEvents(name, date);
+
             // Do something with the new event
+            EventInfo eventInfo = new EventInfo(name, date);
+            calendarController = new CalendarController();
+            calendarController.addEvent(eventInfo);
+
             hide();
         }
 }

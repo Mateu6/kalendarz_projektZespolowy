@@ -24,6 +24,8 @@ import javafx.stage.Window;
 
 import java.net.URL;
 import java.time.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -86,8 +88,21 @@ public class CalendarController implements Initializable {
 
     }
     CalendarEvents eventPopup = new CalendarEvents();
+    private List<EventInfo> events;
 
-    private void drawCalendar() {
+    public CalendarController() {
+        events = new ArrayList<>();
+    }
+
+    public void addEvent(EventInfo eventInfo) {
+        events.add(eventInfo);
+    }
+
+    public List<EventInfo> getEvents() {
+        return events;
+    }
+
+    void drawCalendar() {
 
         year.setFocusTraversable(false);
         monthPicker.setFocusTraversable(false);
@@ -109,6 +124,9 @@ public class CalendarController implements Initializable {
             monthMaxDate = 28;
         }
            int dateOffSet = ZonedDateTime.of(dateFocus.getYear(), dateFocus.getMonthValue(), 1, 0, 0, 0, 0, dateFocus.getZone()).getDayOfWeek().getValue();
+
+        CalendarController calendarController = new CalendarController();
+        List<EventInfo> eventInfos = calendarController.getEvents();
 
         for(int i=0; i<6; i++){
             for(int j=0; j<7; j++){
@@ -144,6 +162,13 @@ public class CalendarController implements Initializable {
 
                     int currentDate = calculateDate - dateOffSet;
 
+//                    LocalDate currentDate1 = LocalDate.from(dateFocus.withDayOfMonth(currentDate));
+//                    for (EventInfo eventInfo : eventInfos) {
+//                        if (eventInfo.getDate().equals(currentDate1)) {
+//                            Text eventNameText = new Text(eventInfo.getName());
+//                            eventContainer.getChildren().add(eventNameText);
+//                        }
+//                    }
                     if(currentDate <= monthMaxDate){
                         Text date = new Text(String.valueOf(currentDate));
                         double textTranslationY = - (rectangleHeight / 2) * 0.75;
