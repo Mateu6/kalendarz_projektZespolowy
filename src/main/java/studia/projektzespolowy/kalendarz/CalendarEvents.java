@@ -24,8 +24,9 @@ import java.time.ZonedDateTime;
 
         private CalendarController calendarController;
 
-        public CalendarEvents() {
+        public CalendarEvents(CalendarController calendarController) {
             super();
+            this.calendarController = calendarController;
 
             // Create UI components
             Label titleLabel = new Label("Add Event");
@@ -60,8 +61,7 @@ import java.time.ZonedDateTime;
             // Set content
             getContent().add(vBox);
         }
-        private String name;
-        private LocalDate date;
+
 
         private void addEvent() {
             String name = nameField.getText();
@@ -69,9 +69,9 @@ import java.time.ZonedDateTime;
 
             // Do something with the new event
             EventInfo eventInfo = new EventInfo(name, date);
-            calendarController = new CalendarController();
             calendarController.addEvent(eventInfo);
 
             hide();
         }
-}
+
+    }

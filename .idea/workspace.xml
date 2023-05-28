@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna">
-      <change afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/EventInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Stworzyłem klasę EventInfo żeby można było łatwo modyfikować co w Event ma się znajdować (aktualnie są nazwa i data)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" afterDir="false" />
@@ -30,6 +28,7 @@
         <entry key="$PROJECT_DIR$" value="feature/calendarBackend" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -158,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683511258394</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Stworzyłem klasę EventInfo żeby można było łatwo modyfikować co w Event ma się znajdować (aktualnie są nazwa i data)">
+      <created>1685094778309</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685094778309</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -194,6 +200,7 @@
     <MESSAGE value="Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu" />
     <MESSAGE value="Funkcja drawMonthsList w klasie CalendarController pozwala na zmianę wyświetlanego miesiąca wybierając go z listy." />
     <MESSAGE value="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna" />
-    <option name="LAST_COMMIT_MESSAGE" value="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna" />
+    <MESSAGE value="Stworzyłem klasę EventInfo żeby można było łatwo modyfikować co w Event ma się znajdować (aktualnie są nazwa i data)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stworzyłem klasę EventInfo żeby można było łatwo modyfikować co w Event ma się znajdować (aktualnie są nazwa i data)" />
   </component>
 </project>
