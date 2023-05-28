@@ -71,7 +71,7 @@ import java.time.ZonedDateTime;
 
             EventInfo eventInfo = new EventInfo(name, date);
             calendarController.addEvent(eventInfo);
-            calendarController.drawCalendar();
+            calendarController.drawCalendar(calendarController);
             hide();
         }
 

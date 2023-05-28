@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Poprawa czytelności kodu klasy CalendarController oraz dodanie popupu dla eventu, który jest dodany do listy">
+    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Da się dodać event ale wyświetlać jeszcze nie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685298098519</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Da się dodać event ale wyświetlać jeszcze nie">
+      <created>1685301054147</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1685301054147</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,6 +215,7 @@
     <MESSAGE value="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna" />
     <MESSAGE value="Stworzyłem klasę EventInfo żeby można było łatwo modyfikować co w Event ma się znajdować (aktualnie są nazwa i data)" />
     <MESSAGE value="Poprawa czytelności kodu klasy CalendarController oraz dodanie popupu dla eventu, który jest dodany do listy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawa czytelności kodu klasy CalendarController oraz dodanie popupu dla eventu, który jest dodany do listy" />
+    <MESSAGE value="Da się dodać event ale wyświetlać jeszcze nie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Da się dodać event ale wyświetlać jeszcze nie" />
   </component>
 </project>

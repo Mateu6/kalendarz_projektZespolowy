@@ -23,7 +23,7 @@ public class CalendarController implements Initializable {
     private ZonedDateTime dateFocus;
     private ZonedDateTime today;
 
-    private Map<LocalDate, List<EventInfo>> eventMap;
+    private Map<LocalDate, List<EventInfo>> eventMap = new HashMap<>();
 
     @FXML
     private TextField year;
@@ -38,24 +38,26 @@ public class CalendarController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        dateFocus = ZonedDateTime.now();
+        if(dateFocus == null){
+            dateFocus = ZonedDateTime.now();
+        }
         today = ZonedDateTime.now();
         eventMap = new HashMap<>();
-        drawCalendar();
+        drawCalendar(this);
     }
 
     @FXML
     void backOneMonth(ActionEvent ignoredEvent) {
         dateFocus = dateFocus.minusMonths(1);
         calendar.getChildren().clear();
-        drawCalendar();
+        drawCalendar(this);
     }
 
     @FXML
     void forwardOneMonth(ActionEvent ignoredEvent) {
         dateFocus = dateFocus.plusMonths(1);
         calendar.getChildren().clear();
-        drawCalendar();
+        drawCalendar(this);
     }
 
     @FXML
@@ -69,7 +71,7 @@ public class CalendarController implements Initializable {
                     monthPicker.setText(month.toString());
                     dateFocus = dateFocus.withMonth(month.getValue());
                     calendar.getChildren().clear();
-                    drawCalendar();
+                    drawCalendar(this);
                 });
             }
         }
@@ -105,12 +107,12 @@ public class CalendarController implements Initializable {
         popup.show(anchorNode, screenBounds.getMinX(), screenBounds.getMaxY());
     }
 
-    void drawCalendar() {
-        year.setFocusTraversable(false);
-        monthPicker.setFocusTraversable(false);
-
+    void drawCalendar(CalendarController calendarController) {
         year.setText(String.valueOf(dateFocus.getYear()));
         monthPicker.setText(String.valueOf(dateFocus.getMonth()));
+
+        year.setFocusTraversable(false);
+        monthPicker.setFocusTraversable(false);
 
         double calendarWidth = calendar.getPrefWidth();
         double calendarHeight = calendar.getPrefHeight();
@@ -206,7 +208,6 @@ public class CalendarController implements Initializable {
                         double y = event.getScreenY();
 
                         // Show the popup at the specified location
-                        CalendarController calendarController = new CalendarController();
                         CalendarEvents eventPopup = new CalendarEvents(calendarController);
                         eventPopup.show(rectangle.getScene().getWindow(), x, y);
 
