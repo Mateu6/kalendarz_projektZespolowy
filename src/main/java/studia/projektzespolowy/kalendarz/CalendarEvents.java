@@ -68,9 +68,10 @@ import java.time.ZonedDateTime;
             LocalDate date = datePicker.getValue();
 
             // Do something with the new event
+
             EventInfo eventInfo = new EventInfo(name, date);
             calendarController.addEvent(eventInfo);
-
+            calendarController.drawCalendar();
             hide();
         }
 

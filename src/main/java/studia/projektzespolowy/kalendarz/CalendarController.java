@@ -36,8 +36,6 @@ public class CalendarController implements Initializable {
     @FXML
     public GridPane calendarControls;
 
-    private ContextMenu contextMenu;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dateFocus = ZonedDateTime.now();
@@ -208,7 +206,10 @@ public class CalendarController implements Initializable {
                         double y = event.getScreenY();
 
                         // Show the popup at the specified location
-                        // Implement your event popup functionality here
+                        CalendarController calendarController = new CalendarController();
+                        CalendarEvents eventPopup = new CalendarEvents(calendarController);
+                        eventPopup.show(rectangle.getScene().getWindow(), x, y);
+
                     });
                 }
 
