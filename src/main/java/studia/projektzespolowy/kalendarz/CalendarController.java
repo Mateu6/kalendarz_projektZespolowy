@@ -10,15 +10,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Window;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.*;
 import java.util.Optional;
@@ -26,6 +25,57 @@ import java.util.ResourceBundle;
 
 public class CalendarController implements Initializable {
 
+    @FXML
+    private Button AddButton;
+    @FXML
+    private ColorPicker ColorPicker;
+    @FXML
+    private TextField GroupNamePicker;
+    @FXML
+    private Button ConfirmButton;
+
+    @FXML
+    private Pane TestImage;
+
+    @FXML
+    private Label TestLabel;
+    @FXML
+    public void addButtonClicked(ActionEvent ignoredEvent) throws IOException {
+        GroupNamePicker.setVisible(true);
+        ColorPicker.setVisible(true);
+        ConfirmButton.setVisible(true);
+        AddButton.setVisible(false);
+
+        /*Add.displayAddWindow();*/
+        /*try {
+            System.out.println("User is adding an event ...");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddWindow.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Add Window");
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Error loading AddWindow.fxml: " + e.getMessage());
+            e.printStackTrace();
+        }*/
+    }
+
+
+    public void ConfirmButtonClicked(ActionEvent event){
+        GroupNamePicker.setVisible(false);
+        ColorPicker.setVisible(false);
+        ConfirmButton.setVisible(false);
+        AddButton.setVisible(true);
+        Color PickedColor = ColorPicker.getValue();
+        String GroupName = GroupNamePicker.getText();
+        TestImage.setBackground(new Background(new BackgroundFill(PickedColor, null, null)));
+        TestLabel.setText(GroupName);
+
+
+    }
     ZonedDateTime dateFocus;
     ZonedDateTime today;
 

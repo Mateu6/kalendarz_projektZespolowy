@@ -6,7 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="173d7b9f-68d5-43b7-a477-7d282d395e55" name="Changes" comment="Code  działanie okna logowanie i rejestracji">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/AddEventDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/AddEventDialogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/DBUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/DBUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/LooggedInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/LooggedInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/loggend.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/loggend.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/sign-up.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/sign-up.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +42,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/CalendarWeek" />
+        <entry key="$PROJECT_DIR$" value="MyVersion" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,10 +76,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "develop",
     "last_opened_file_path": "D:/kalendarz_projektZespolowy",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings"
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -75,8 +87,10 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-19" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="studia.projektzespolowy.kalendarz.HelloApplication" />
       <module name="kalendarz" />
       <method v="2">
@@ -87,21 +101,20 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/mysql-connector-j-8.0.32.jar" />
       <method v="2" />
     </configuration>
-    <configuration name="mysql-connector-j-8.0.32.jar" type="JarApplication" temporary="true">
+    <configuration name="mysql-connector-j-8.0.32.jar" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/lib/mysql-connector-j-8.0.32.jar" />
       <option name="WORKING_DIRECTORY" value="$USER_HOME$/Documents/Studia/springWebApplication/src" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.Main" />
       <item itemvalue="JAR Application.mysql-connector-j-8.0.32.jar" />
       <item itemvalue="JAR Application.mysql-connector-j-8.0.32.jar (1)" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JAR Application.mysql-connector-j-8.0.32.jar (1)" />
-        <item itemvalue="JAR Application.mysql-connector-j-8.0.32.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -168,7 +181,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feature/calendarEvent" />
+                        <option value="feature/calendarMain" />
                       </list>
                     </value>
                   </entry>
@@ -187,6 +200,16 @@
     <MESSAGE value="Code  działanie okna logowanie i rejestracji" />
     <MESSAGE value="Naprawiłem błąd z month pickerem (hello-view.fxml) był nieaktualny z jakiegoś powodu. Zmieniłem też połączenie z bazą danych na swoje (każdy musi zmienić u siebie pod swój serwer)" />
     <option name="LAST_COMMIT_MESSAGE" value="Naprawiłem błąd z month pickerem (hello-view.fxml) był nieaktualny z jakiegoś powodu. Zmieniłem też połączenie z bazą danych na swoje (każdy musi zmienić u siebie pod swój serwer)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.RuntimeException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
