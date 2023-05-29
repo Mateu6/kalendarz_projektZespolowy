@@ -47,7 +47,9 @@ public class CalendarController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dateFocus = ZonedDateTime.now();
         today = ZonedDateTime.now();
-        drawCalendar();
+        //drawCalendar();
+        drawDayView();
+
     }
 
     @FXML
@@ -78,6 +80,7 @@ public class CalendarController implements Initializable {
                     dateFocus = dateFocus.withMonth(month.getValue());
                     calendar.getChildren().clear();
                     drawCalendar();
+
                 });
             }
         }
@@ -85,7 +88,7 @@ public class CalendarController implements Initializable {
     }
     CalendarEvents eventPopup = new CalendarEvents();
 
-    private void drawCalendar() {
+   private void drawCalendar() {
 
         year.setFocusTraversable(false);
         monthPicker.setFocusTraversable(false);
@@ -164,4 +167,27 @@ public class CalendarController implements Initializable {
             }
         }
     }
+
+    private void drawDayView() {
+
+        double calendarWidth = calendar.getPrefWidth();
+        double calendarHeight = calendar.getPrefHeight();
+        double strokeWidth = 1;
+
+        for(int i=0; i<24; i++){
+
+            ScrollPane scrollPane = new ScrollPane();
+            Rectangle rectangle = new Rectangle();
+
+            rectangle.setFill(Color.TRANSPARENT);
+            rectangle.setStroke(Color.GRAY);
+            rectangle.setStrokeWidth(strokeWidth);
+            rectangle.setWidth(calendarWidth);
+            rectangle.setHeight(calendarHeight/8);
+            scrollPane.setContent(rectangle);
+
+        }
+
+    }
+
 }
