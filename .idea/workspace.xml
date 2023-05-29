@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="173d7b9f-68d5-43b7-a477-7d282d395e55" name="Changes" comment="unversioned files">
+    <list default="true" id="173d7b9f-68d5-43b7-a477-7d282d395e55" name="Changes" comment="początek pętli do rysowania dayView">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684583776607</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="początek pętli do rysowania dayView">
+      <created>1685391139711</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685391139711</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,7 +193,8 @@
     <MESSAGE value="Interfejs logowanie, rejestracje" />
     <MESSAGE value="Code  działanie okna logowanie i rejestracji" />
     <MESSAGE value="Naprawiłem błąd z month pickerem (hello-view.fxml) był nieaktualny z jakiegoś powodu. Zmieniłem też połączenie z bazą danych na swoje (każdy musi zmienić u siebie pod swój serwer)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Naprawiłem błąd z month pickerem (hello-view.fxml) był nieaktualny z jakiegoś powodu. Zmieniłem też połączenie z bazą danych na swoje (każdy musi zmienić u siebie pod swój serwer)" />
+    <MESSAGE value="początek pętli do rysowania dayView" />
+    <option name="LAST_COMMIT_MESSAGE" value="początek pętli do rysowania dayView" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
