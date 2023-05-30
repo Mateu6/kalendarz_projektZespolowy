@@ -1,0 +1,158 @@
+Index: src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package studia.projektzespolowy.kalendarz;\n\nimport javafx.collections.FXCollections;\nimport javafx.collections.ObservableList;\nimport javafx.event.ActionEvent;\nimport javafx.event.Event;\nimport javafx.event.EventHandler;\nimport javafx.fxml.FXML;\nimport javafx.fxml.Initializable;\nimport javafx.scene.Node;\nimport javafx.scene.control.*;\nimport javafx.scene.input.MouseEvent;\nimport javafx.scene.layout.FlowPane;\nimport javafx.scene.layout.GridPane;\nimport javafx.scene.layout.StackPane;\nimport javafx.scene.paint.Color;\nimport javafx.scene.shape.Rectangle;\nimport javafx.scene.text.Text;\nimport javafx.stage.Window;\n\n\nimport java.net.URL;\nimport java.time.*;\nimport java.util.Optional;\nimport java.util.ResourceBundle;\n\npublic class CalendarController implements Initializable {\n\n    ZonedDateTime dateFocus;\n    ZonedDateTime today;\n\n    private ContextMenu contextMenu;\n    @FXML\n    private TextField year;\n    @FXML\n    public MenuButton monthPicker;\n    @FXML\n    public FlowPane calendar;\n    @FXML\n    public GridPane calendarLabels;\n    @FXML\n    public GridPane calendarControls;\n    private ObservableList<CalendarEvents> tvObservableList = FXCollections.observableArrayList();\n\n\n    @Override\n    public void initialize(URL url, ResourceBundle resourceBundle) {\n        dateFocus = ZonedDateTime.now();\n        today = ZonedDateTime.now();\n        drawCalendar();\n    }\n\n    @FXML\n    void backOneMonth(ActionEvent ignoredEvent) {\n        dateFocus = dateFocus.minusMonths(1);\n        calendar.getChildren().clear();\n        drawCalendar();\n    }\n\n    @FXML\n    void forwardOneMonth(ActionEvent ignoredEvent) {\n        dateFocus = dateFocus.plusMonths(1);\n        calendar.getChildren().clear();\n        drawCalendar();\n    }\n\n    @FXML\n    private void drawMonthsList() {\n\n        if(monthPicker.getItems().isEmpty()) {\n\n            for (Month month : Month.values()) {\n                MenuItem menuItem = new MenuItem(month.toString());\n                monthPicker.getItems().add(menuItem);\n                menuItem.setOnAction(event -> {\n                    // Update the MenuButton text to show the selected month\n                    monthPicker.setText(month.toString());\n                    dateFocus = dateFocus.withMonth(month.getValue());\n                    calendar.getChildren().clear();\n                    drawCalendar();\n                });\n            }\n        }\n\n    }\n    CalendarEvents eventPopup = new CalendarEvents();\n\n    private void drawCalendar() {\n\n        year.setFocusTraversable(false);\n        monthPicker.setFocusTraversable(false);\n\n        year.setText(String.valueOf(dateFocus.getYear()));\n        monthPicker.setText(String.valueOf(dateFocus.getMonth()));\n\n\n        double calendarWidth = calendar.getPrefWidth();\n        double calendarHeight = calendar.getPrefHeight();\n        double strokeWidth = 1;\n        double spacingH = calendar.getHgap();\n        double spacingV = calendar.getVgap();\n\n        int monthMaxDate = dateFocus.getMonth().maxLength();\n\n        //check for leap year\n        if(dateFocus.getYear() % 4 !=0 && monthMaxDate == 29){\n            monthMaxDate = 28;\n        }\n           int dateOffSet = ZonedDateTime.of(dateFocus.getYear(), dateFocus.getMonthValue(), 1, 0, 0, 0, 0, dateFocus.getZone()).getDayOfWeek().getValue();\n\n        for(int i=0; i<6; i++){\n            for(int j=0; j<7; j++){\n\n                StackPane stackPane = new StackPane();\n                Rectangle rectangle = new Rectangle();\n\n\n                rectangle.setFill(Color.TRANSPARENT);\n                rectangle.setStroke(Color.GRAY);\n                rectangle.setStrokeWidth(strokeWidth);\n                double rectangleWidth = (calendarWidth/7) - strokeWidth - spacingH;\n                rectangle.setWidth(rectangleWidth);\n                double rectangleHeight = (calendarHeight/6) - strokeWidth - spacingV;\n                rectangle.setHeight(rectangleHeight);\n                stackPane.getChildren().add(rectangle);\n\n                int calculateDate = (j + 1) + (7 * i);\n\n                if(calculateDate > dateOffSet){\n\n                    int currentDate = calculateDate - dateOffSet;\n\n                    if(currentDate <= monthMaxDate){\n                        Text date = new Text(String.valueOf(currentDate));\n                        double textTranslationY = - (rectangleHeight / 2) * 0.75;\n                        date.setTranslateY(textTranslationY);\n                        stackPane.getChildren().add(date);\n                    } else {\n                        rectangle.setDisable(true);\n                    }\n                    if(today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth() && today.getDayOfMonth() == currentDate){\n                        rectangle.setStroke(Color.BLUE);\n                        rectangle.setFill(Color.DARKGRAY);\n                    }\n                } else {\n                    rectangle.setDisable(true);}\n\n                if (!rectangle.isDisable()) {\n                    rectangle.setOnMouseClicked(event -> {\n                        // Determine the x and y coordinates of the click relative to the screen\n                        double x = event.getScreenX();\n                        double y = event.getScreenY();\n\n                        // Show the popup at the specified location\n                        eventPopup.show(rectangle.getScene().getWindow(), x, y);\n                    });\n                }\n                if(rectangle.isDisable()) {\n                    rectangle.setFill(Color.LIGHTGRAY);\n                }\n                calendar.getChildren().add(stackPane);\n\n\n            }\n        }\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java b/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java
+--- a/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java	
++++ b/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java	
+@@ -21,15 +21,13 @@
+ 
+ import java.net.URL;
+ import java.time.*;
+-import java.util.Optional;
+-import java.util.ResourceBundle;
++import java.util.*;
++import java.util.stream.Collectors;
+ 
+ public class CalendarController implements Initializable {
+ 
+     ZonedDateTime dateFocus;
+     ZonedDateTime today;
+-
+-    private ContextMenu contextMenu;
+     @FXML
+     private TextField year;
+     @FXML
+@@ -40,7 +38,8 @@
+     public GridPane calendarLabels;
+     @FXML
+     public GridPane calendarControls;
+-    private ObservableList<CalendarEvents> tvObservableList = FXCollections.observableArrayList();
++
++    CalendarEvents eventPopup = new CalendarEvents();
+ 
+ 
+     @Override
+@@ -81,9 +80,7 @@
+                 });
+             }
+         }
+-
+     }
+-    CalendarEvents eventPopup = new CalendarEvents();
+ 
+     private void drawCalendar() {
+ 
+@@ -93,7 +90,6 @@
+         year.setText(String.valueOf(dateFocus.getYear()));
+         monthPicker.setText(String.valueOf(dateFocus.getMonth()));
+ 
+-
+         double calendarWidth = calendar.getPrefWidth();
+         double calendarHeight = calendar.getPrefHeight();
+         double strokeWidth = 1;
+@@ -114,7 +110,6 @@
+                 StackPane stackPane = new StackPane();
+                 Rectangle rectangle = new Rectangle();
+ 
+-
+                 rectangle.setFill(Color.TRANSPARENT);
+                 rectangle.setStroke(Color.GRAY);
+                 rectangle.setStrokeWidth(strokeWidth);
+@@ -162,6 +157,7 @@
+ 
+ 
+             }
++
+         }
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"d0a517b0-9103-4a5c-81f3-22859fa37ef1\" name=\"Changes\" comment=\"Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/add-event-dialog.fxml\" beforeDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"FxmlFile\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"feature/calendarBackend\" />\n      </map>\n    </option>\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"generalSettings\">\n      <MavenGeneralSettings>\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\n        <option name=\"useMavenConfig\" value=\"true\" />\n      </MavenGeneralSettings>\n    </option>\n  </component>\n  <component name=\"ProblemsViewState\">\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2OqBJZXH8pJfdMRjjd8S4wHNeRZ\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"Unnamed\" type=\"Application\" factoryName=\"Application\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"studia.projektzespolowy.kalendarz.HelloApplication\" />\n      <module name=\"kalendarz\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\n      <module name=\"kalendarz_projektZespolowy\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\n      <module name=\"kalendarz_projektZespolowy\" />\n      <option name=\"filePath\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"d0a517b0-9103-4a5c-81f3-22859fa37ef1\" name=\"Changes\" comment=\"\" />\n      <created>1682278160537</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1682278160537</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"działające wyświetlenie miesiąca i roku, dodano 2 klasy(CalendarActivity i CalendarController)\">\n      <created>1682279428461</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1682279428461</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"modyfikacje okna\">\n      <created>1682354742045</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1682354742047</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"zaznacznie dnia miesiąca i dodawanie do niego wydarzenia\">\n      <created>1682885178198</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1682885178198</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Dodałem funkcjonalność kontrolki 'rectangle', która pozwala na otworzenie okna, które umożliwi dodanie eventu do kalendarza\">\n      <created>1683279208230</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1683279208230</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Drobne zmiany - nie da się klikać na kafelki, które nie mają daty.\">\n      <created>1683279567882</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1683279567882</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Próba zrobienia ComboBoxa który wyświetla miesiące i umożliwia wybór miesiąca\">\n      <created>1683465367926</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1683465367926</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu\">\n      <created>1683501430278</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1683501430278</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"Funkcja drawMonthsList w klasie CalendarController pozwala na zmianę wyświetlanego miesiąca wybierając go z listy.\">\n      <created>1683510850771</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1683510850771</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna\">\n      <created>1683511258394</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1683511258394</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"10\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"feature/calendarEvent\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"działające wyświetlenie miesiąca i roku, dodano 2 klasy(CalendarActivity i CalendarController)\" />\n    <MESSAGE value=\"modyfikacje okna\" />\n    <MESSAGE value=\"zaznacznie dnia miesiąca i dodawanie do niego wydarzenia\" />\n    <MESSAGE value=\"Dodałem funkcjonalność kontrolki 'rectangle', która pozwala na otworzenie okna, które umożliwi dodanie eventu do kalendarza\" />\n    <MESSAGE value=\"Drobne zmiany - nie da się klikać na kafelki, które nie mają daty.\" />\n    <MESSAGE value=\"Próba zrobienia ComboBoxa który wyświetla miesiące i umożliwia wybór miesiąca\" />\n    <MESSAGE value=\"Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu\" />\n    <MESSAGE value=\"Funkcja drawMonthsList w klasie CalendarController pozwala na zmianę wyświetlanego miesiąca wybierając go z listy.\" />\n    <MESSAGE value=\"Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,11 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna">
++    <list default="true" id="d0a517b0-9103-4a5c-81f3-22859fa37ef1" name="Changes" comment="Zmieniłem sposób dodawania eventu. Zamiast osobnego okna wyświetla się Popup">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/studia/projektzespolowy/kalendarz/add-event-dialog.fxml" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -156,7 +155,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1683511258394</updated>
+     </task>
+-    <option name="localTasksCounter" value="10" />
++    <task id="LOCAL-00010" summary="Zmieniłem sposób dodawania eventu. Zamiast osobnego okna wyświetla się Popup">
++      <created>1683669322258</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1683669322258</updated>
++    </task>
++    <option name="localTasksCounter" value="11" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -170,7 +176,7 @@
+                   <entry key="branch">
+                     <value>
+                       <list>
+-                        <option value="feature/calendarEvent" />
++                        <option value="origin/Login" />
+                       </list>
+                     </value>
+                   </entry>
+@@ -192,6 +198,7 @@
+     <MESSAGE value="Pozbyłem się zagnieżdżenia event handlera odpowiedzialnego za wyświetlenie okna dodawania eventu" />
+     <MESSAGE value="Funkcja drawMonthsList w klasie CalendarController pozwala na zmianę wyświetlanego miesiąca wybierając go z listy." />
+     <MESSAGE value="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Funkcja drawMonthsList: usunąłem zmienną alteredMonth, bo okazała się być jednak niepotrzebna" />
++    <MESSAGE value="Zmieniłem sposób dodawania eventu. Zamiast osobnego okna wyświetla się Popup" />
++    <option name="LAST_COMMIT_MESSAGE" value="Zmieniłem sposób dodawania eventu. Zamiast osobnego okna wyświetla się Popup" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package studia.projektzespolowy.kalendarz;\n\nimport studia.projektzespolowy.kalendarz.CalendarEvents;\nimport javafx.event.Event;\nimport javafx.geometry.Insets;\nimport javafx.geometry.Pos;\nimport javafx.scene.control.*;\nimport javafx.scene.layout.GridPane;\nimport javafx.scene.layout.HBox;\nimport javafx.scene.layout.VBox;\nimport javafx.stage.Popup;\n\nimport java.time.LocalDate;\nimport java.time.ZonedDateTime;\n\n\n\n    public class CalendarEvents extends Popup {\n\n        private DatePicker datePicker;\n        private  TextField nameField;\n        private  Button addButton;\n        private  Button cancelButton;\n\n        public CalendarEvents() {\n            super();\n\n            // Create UI components\n            Label titleLabel = new Label(\"Add Event\");\n            Label nameLabel;\n            titleLabel.setStyle(\"-fx-font-size: 16px; -fx-font-weight: bold;\");\n            nameLabel = new Label(\"Name:\");\n            nameField = new TextField();\n            datePicker = new DatePicker(LocalDate.now());\n            addButton = new Button(\"Add\");\n            cancelButton = new Button(\"Cancel\");\n\n            // Set event handlers\n            addButton.setOnAction(event -> addEvent());\n            cancelButton.setOnAction(event -> hide());\n\n            // Create layout\n            GridPane gridPane = new GridPane();\n            gridPane.setHgap(10);\n            gridPane.setVgap(5);\n            gridPane.setPadding(new Insets(10));\n            gridPane.addRow(0, nameLabel, nameField);\n            gridPane.addRow(1, new Label(\"Date:\"), datePicker);\n\n            HBox buttonBox = new HBox(10, addButton, cancelButton);\n            buttonBox.setAlignment(Pos.CENTER_RIGHT);\n\n            VBox vBox = new VBox(10, titleLabel, gridPane, buttonBox);\n            vBox.setPadding(new Insets(10));\n            vBox.setStyle(\"-fx-background-color: white; -fx-border-color: lightgray; -fx-border-width: 1px; -fx-border-radius: 5px;\");\n            vBox.setMaxWidth(300);\n\n            // Set content\n            getContent().add(vBox);\n        }\n        private String name;\n        private LocalDate date;\n\n        public CalendarEvents(String name, LocalDate date) {\n            this.name = name;\n            this.date = date;\n        }\n        private void addEvent() {\n            String name = nameField.getText();\n            LocalDate date = datePicker.getValue();\n            CalendarEvents event = new CalendarEvents(name, date);\n            // Do something with the new event\n            hide();\n        }\n}\n
+===================================================================
+diff --git a/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java b/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java
+--- a/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java	
++++ b/src/main/java/studia/projektzespolowy/kalendarz/CalendarEvents.java	
+@@ -58,12 +58,8 @@
+             // Set content
+             getContent().add(vBox);
+         }
+-        private String name;
+-        private LocalDate date;
+ 
+         public CalendarEvents(String name, LocalDate date) {
+-            this.name = name;
+-            this.date = date;
+         }
+         private void addEvent() {
+             String name = nameField.getText();
+@@ -72,4 +68,4 @@
+             // Do something with the new event
+             hide();
+         }
+-}
++    }
