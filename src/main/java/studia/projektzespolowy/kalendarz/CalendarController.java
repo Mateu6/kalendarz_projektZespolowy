@@ -36,6 +36,9 @@ public class CalendarController implements Initializable {
     @FXML
     public GridPane calendarControls;
 
+    int currentDate = 0;
+    LocalDate clickedDate = null;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(dateFocus == null){
@@ -155,20 +158,29 @@ public class CalendarController implements Initializable {
                 dot.setStrokeWidth(strokeWidth);
                 dot.setRadius(10);
                 eventContainer.setAlignment(Pos.TOP_RIGHT);
-                eventContainer.getChildren().addAll(eventRectangle, dot); // Is ready to replace a given tile
+                //stackPane.getChildren().addAll(eventContainer); // Add eventContainer to the stackPane
 
                 int calculateDate = (j + 1) + (7 * i);
 
                 if (calculateDate > dateOffSet) {
-                    int currentDate = calculateDate - dateOffSet;
+                    currentDate = calculateDate - dateOffSet;
 
                     rectangle.setOnMouseClicked(event -> {
-                        LocalDate clickedDate = LocalDate.of(dateFocus.getYear(), dateFocus.getMonthValue(), currentDate);
+                        clickedDate = LocalDate.of(dateFocus.getYear(), dateFocus.getMonthValue(), currentDate);
 
                         List<EventInfo> events = eventMap.get(clickedDate);
+
                         if (events != null && !events.isEmpty()) {
                             // Show pop-up with event details
                             showEventPopup(events, rectangle);
+                            calendar.getChildren().add(eventContainer);
+
+                            eventContainer.getChildren().clear(); // Clear previous event details
+
+                            for (EventInfo eventInfo : events) {
+                                Text eventNameText = new Text(eventInfo.getName());
+                                eventContainer.getChildren().add(eventNameText);
+                            }
                         }
                     });
 
@@ -177,10 +189,11 @@ public class CalendarController implements Initializable {
                         List<EventInfo> events = eventMap.get(currentDateObj);
 
                         if (events != null) {
-                            for (EventInfo eventInfo : events) {
-                                Text eventNameText = new Text(eventInfo.getName());
-                                eventContainer.getChildren().add(eventNameText);
-                                calendar.getChildren().add(eventRectangle);
+                            for (EventInfo event : events) {
+                                // Add event details to the eventContainer
+                                Text eventName = new Text(event.getName());
+                                Text eventTime = new Text(event.getDate().toString());
+                                eventContainer.getChildren().addAll(eventName, eventTime);
                             }
                         }
 
@@ -213,8 +226,6 @@ public class CalendarController implements Initializable {
 
                     });
                 }
-
-
 
                 if (rectangle.isDisable()) {
                     rectangle.setFill(Color.LIGHTGRAY);

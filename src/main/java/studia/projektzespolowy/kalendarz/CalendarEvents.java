@@ -17,6 +17,7 @@ import java.time.ZonedDateTime;
 
     public class CalendarEvents extends Popup {
 
+        //private final Class<? extends CalendarController> ;
         private DatePicker datePicker;
         private  TextField nameField;
         private  Button addButton;
@@ -38,6 +39,7 @@ import java.time.ZonedDateTime;
             addButton = new Button("Add");
             cancelButton = new Button("Cancel");
 
+
             // Set event handlers
             addButton.setOnAction(event -> addEvent());
             cancelButton.setOnAction(event -> hide());
@@ -57,6 +59,10 @@ import java.time.ZonedDateTime;
             vBox.setPadding(new Insets(10));
             vBox.setStyle("-fx-background-color: white; -fx-border-color: lightgray; -fx-border-width: 1px; -fx-border-radius: 5px;");
             vBox.setMaxWidth(300);
+
+            if(LocalDate.now() != calendarController.clickedDate){
+                //datePicker.getValue() = calendarController.clickedDate;
+            }
 
             // Set content
             getContent().add(vBox);
