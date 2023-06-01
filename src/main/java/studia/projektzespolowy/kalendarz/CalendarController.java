@@ -1,30 +1,37 @@
 package studia.projektzespolowy.kalendarz;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Bounds;
-import javafx.geometry.Pos;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Popup;
+import javafx.stage.Window;
 
 import java.net.URL;
 import java.time.*;
-import java.util.*;
+import java.util.Optional;
+import java.util.ResourceBundle;
 
 public class CalendarController implements Initializable {
 
-    private ZonedDateTime dateFocus;
-    private ZonedDateTime today;
+    ZonedDateTime dateFocus;
+    ZonedDateTime today;
 
-    private Map<LocalDate, List<EventInfo>> eventMap = new HashMap<>();
-
+    private ContextMenu contextMenu;
     @FXML
     private TextField year;
     @FXML
@@ -35,32 +42,27 @@ public class CalendarController implements Initializable {
     public GridPane calendarLabels;
     @FXML
     public GridPane calendarControls;
-
-    int currentDate = 0;
-    LocalDate clickedDate = null;
+    private ObservableList<CalendarEvent> eventList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(dateFocus == null){
-            dateFocus = ZonedDateTime.now();
-        }
+        dateFocus = ZonedDateTime.now();
         today = ZonedDateTime.now();
-        eventMap = new HashMap<>();
-        drawCalendar(this);
+        drawCalendar();
     }
 
     @FXML
     void backOneMonth(ActionEvent ignoredEvent) {
         dateFocus = dateFocus.minusMonths(1);
         calendar.getChildren().clear();
-        drawCalendar(this);
+        drawCalendar();
     }
 
     @FXML
     void forwardOneMonth(ActionEvent ignoredEvent) {
         dateFocus = dateFocus.plusMonths(1);
         calendar.getChildren().clear();
-        drawCalendar(this);
+        drawCalendar();
     }
 
     @FXML
@@ -70,52 +72,21 @@ public class CalendarController implements Initializable {
                 MenuItem menuItem = new MenuItem(month.toString());
                 monthPicker.getItems().add(menuItem);
                 menuItem.setOnAction(event -> {
-                    // Update the MenuButton text to show the selected month
                     monthPicker.setText(month.toString());
                     dateFocus = dateFocus.withMonth(month.getValue());
                     calendar.getChildren().clear();
-                    drawCalendar(this);
+                    drawCalendar();
                 });
             }
         }
     }
 
-    public void addEvent(EventInfo event) {
-        LocalDate eventDate = event.getDate();
-        eventMap.computeIfAbsent(eventDate, key -> new ArrayList<>()).add(event);
-    }
-
-    private void showEventPopup(List<EventInfo> events, Node anchorNode) {
-        // Create an AnchorPane to hold the pop-up content
-        AnchorPane popupContent = new AnchorPane();
-        popupContent.setStyle("-fx-background-color: white; -fx-padding: 10px;");
-
-        // Add event details to the pop-up content
-        VBox eventDetails = new VBox();
-        for (EventInfo event : events) {
-            Text eventName = new Text(event.getName());
-            Text eventTime = new Text(event.getDate().toString());
-            eventDetails.getChildren().addAll(eventName, eventTime);
-        }
-        popupContent.getChildren().add(eventDetails);
-
-        // Create a Popup and set its content
-        Popup popup = new Popup();
-        popup.setAutoHide(true);
-        popup.getContent().add(popupContent);
-
-        // Show the pop-up below the anchorNode
-        Bounds bounds = anchorNode.getBoundsInLocal();
-        Bounds screenBounds = anchorNode.localToScreen(bounds);
-        popup.show(anchorNode, screenBounds.getMinX(), screenBounds.getMaxY());
-    }
-
-    void drawCalendar(CalendarController calendarController) {
-        year.setText(String.valueOf(dateFocus.getYear()));
-        monthPicker.setText(String.valueOf(dateFocus.getMonth()));
-
+    private void drawCalendar() {
         year.setFocusTraversable(false);
         monthPicker.setFocusTraversable(false);
+
+        year.setText(String.valueOf(dateFocus.getYear()));
+        monthPicker.setText(String.valueOf(dateFocus.getMonth()));
 
         double calendarWidth = calendar.getPrefWidth();
         double calendarHeight = calendar.getPrefHeight();
@@ -130,19 +101,13 @@ public class CalendarController implements Initializable {
             monthMaxDate = 28;
         }
 
-        int dateOffSet = ZonedDateTime.of(dateFocus.getYear(), dateFocus.getMonthValue(), 1, 0, 0, 0, 0, dateFocus.getZone())
-                .getDayOfWeek().getValue();
+        int dateOffset = ZonedDateTime.of(dateFocus.getYear(), dateFocus.getMonthValue(), 1, 0, 0, 0, 0, dateFocus.getZone()).getDayOfWeek().getValue();
 
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
-
                 StackPane stackPane = new StackPane();
                 Rectangle rectangle = new Rectangle();
-                Rectangle eventRectangle = new Rectangle();
-                Circle dot = new Circle();
-                VBox eventContainer = new VBox();
 
-                // Day in the month tile
                 rectangle.setFill(Color.TRANSPARENT);
                 rectangle.setStroke(Color.GRAY);
                 rectangle.setStrokeWidth(strokeWidth);
@@ -150,63 +115,30 @@ public class CalendarController implements Initializable {
                 rectangle.setWidth(rectangleWidth);
                 double rectangleHeight = (calendarHeight / 6) - strokeWidth - spacingV;
                 rectangle.setHeight(rectangleHeight);
-                stackPane.getChildren().add(rectangle); // Show the calendar tiles
-
-                // Day in the month with event attached to it tile
-                dot.setFill(Color.TRANSPARENT);
-                dot.setStroke(Color.YELLOW);
-                dot.setStrokeWidth(strokeWidth);
-                dot.setRadius(10);
-                eventContainer.setAlignment(Pos.TOP_RIGHT);
-                //stackPane.getChildren().addAll(eventContainer); // Add eventContainer to the stackPane
+                stackPane.getChildren().add(rectangle);
 
                 int calculateDate = (j + 1) + (7 * i);
 
-                if (calculateDate > dateOffSet) {
-                    currentDate = calculateDate - dateOffSet;
-
-                    rectangle.setOnMouseClicked(event -> {
-                        clickedDate = LocalDate.of(dateFocus.getYear(), dateFocus.getMonthValue(), currentDate);
-
-                        List<EventInfo> events = eventMap.get(clickedDate);
-
-                        if (events != null && !events.isEmpty()) {
-                            // Show pop-up with event details
-                            showEventPopup(events, rectangle);
-                            calendar.getChildren().add(eventContainer);
-
-                            eventContainer.getChildren().clear(); // Clear previous event details
-
-                            for (EventInfo eventInfo : events) {
-                                Text eventNameText = new Text(eventInfo.getName());
-                                eventContainer.getChildren().add(eventNameText);
-                            }
-                        }
-                    });
+                if (calculateDate > dateOffset) {
+                    int currentDate = calculateDate - dateOffset;
 
                     if (currentDate <= monthMaxDate) {
-                        LocalDate currentDateObj = LocalDate.of(dateFocus.getYear(), dateFocus.getMonthValue(), currentDate);
-                        List<EventInfo> events = eventMap.get(currentDateObj);
-
-                        if (events != null) {
-                            for (EventInfo event : events) {
-                                // Add event details to the eventContainer
-                                Text eventName = new Text(event.getName());
-                                Text eventTime = new Text(event.getDate().toString());
-                                eventContainer.getChildren().addAll(eventName, eventTime);
-                            }
-                        }
-
-                        Text date = new Text(String.valueOf(currentDate));
+                        Text dateText = new Text(String.valueOf(currentDate));
                         double textTranslationY = -(rectangleHeight / 2) * 0.75;
-                        date.setTranslateY(textTranslationY);
-                        stackPane.getChildren().add(date);
+                        dateText.setTranslateY(textTranslationY);
+                        stackPane.getChildren().add(dateText);
+
+                        // Check if there is an event on this date
+                        boolean hasEvent = hasEventOnDate(dateFocus.withDayOfMonth(currentDate));
+                        if (hasEvent) {
+                            Circle eventIndicator = createEventIndicator();
+                            stackPane.getChildren().add(eventIndicator);
+                        }
                     } else {
                         rectangle.setDisable(true);
                     }
 
-                    if (today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth()
-                            && today.getDayOfMonth() == currentDate) {
+                    if (today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth() && today.getDayOfMonth() == currentDate) {
                         rectangle.setStroke(Color.BLUE);
                         rectangle.setFill(Color.DARKGRAY);
                     }
@@ -215,15 +147,11 @@ public class CalendarController implements Initializable {
                 }
 
                 if (!rectangle.isDisable()) {
+                    final int clickedDate = calculateDate; // Store the current date for the event handler
                     rectangle.setOnMouseClicked(event -> {
-                        // Determine the x and y coordinates of the click relative to the screen
-                        double x = event.getScreenX();
-                        double y = event.getScreenY();
-
-                        // Show the popup at the specified location
-                        CalendarEvents eventPopup = new CalendarEvents(calendarController);
-                        eventPopup.show(rectangle.getScene().getWindow(), x, y);
-
+                        if (event.getButton() == MouseButton.PRIMARY) {
+                            handleDateClick(dateFocus.withDayOfMonth(clickedDate), event.getScreenX(), event.getScreenY());
+                        }
                     });
                 }
 
@@ -234,5 +162,224 @@ public class CalendarController implements Initializable {
                 calendar.getChildren().add(stackPane);
             }
         }
+    }
+
+    private boolean hasEventOnDate(ZonedDateTime date) {
+        return eventList.stream()
+                .anyMatch(event -> event.getDate().equals(date.toLocalDate()));
+    }
+
+    private Circle createEventIndicator() {
+        Circle eventIndicator = new Circle(8, Color.RED);
+        eventIndicator.setTranslateY(-12);
+        return eventIndicator;
+    }
+
+    private void handleDateClick(ZonedDateTime clickedDate, double x, double y) {
+        LocalDate date = clickedDate.toLocalDate();
+        LocalTime time = clickedDate.toLocalTime();
+
+        // Create the popup
+        Popup popup = new Popup();
+        popup.setAutoHide(true);
+
+        // Create the event form
+        VBox eventForm = new VBox(10);
+        eventForm.setStyle("-fx-background-color: white; -fx-padding: 10px;");
+        eventForm.setPrefWidth(300);
+
+        // Create form components
+        TextField titleField = new TextField();
+        TextArea descriptionArea = new TextArea();
+        DatePicker datePicker = new DatePicker(date);
+        TextField timeField = new TextField(time.toString());
+        Button createButton = new Button("Create Event");
+
+        // Add event handler for create button
+        createButton.setOnAction(event -> {
+            String title = titleField.getText();
+            String description = descriptionArea.getText();
+            LocalDate selectedDate = datePicker.getValue();
+            LocalTime selectedTime = LocalTime.parse(timeField.getText());
+
+            CalendarEvent eventObject = new CalendarEvent(title, description, selectedDate, selectedTime);
+            // Perform necessary operations with the event object (e.g., add to data structure)
+            eventList.add(eventObject);
+            popup.hide();
+        });
+
+        // Add form components to the event form
+        eventForm.getChildren().addAll(
+                new Label("Title:"),
+                titleField,
+                new Label("Description:"),
+                descriptionArea,
+                new Label("Date:"),
+                datePicker,
+                new Label("Time:"),
+                timeField,
+                createButton
+        );
+
+        // Set the content of the popup to the event form
+        popup.getContent().add(eventForm);
+
+        // Position the popup relative to the calendar
+        Node source = calendar; // Set the source node for positioning
+        Window window = source.getScene().getWindow();
+        double posX = window.getX() + x - eventForm.getPrefWidth() / 2;
+        double posY = window.getY() + y - eventForm.getHeight() / 2;
+        popup.show(window, posX, posY);
+    }
+
+
+    private void showEventPopup(CalendarEvent event, double x, double y) {
+        // Show the popup with event details and modification options
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Event Details");
+        alert.setHeaderText("Event on " + event.getDate());
+        alert.setContentText("Event Description: " + event.getDescription());
+
+        ButtonType editButton = new ButtonType("Edit");
+        ButtonType deleteButton = new ButtonType("Delete");
+        ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(editButton, deleteButton, cancelButton);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == editButton) {
+                // Handle edit event
+                showEditEventPopup(event);
+            } else if (result.get() == deleteButton) {
+                // Handle delete event
+                deleteEvent(event);
+            }
+        }
+    }
+
+    private void showCreateEventPopup(ZonedDateTime date) {
+        // Create the popup
+        Popup popup = new Popup();
+        popup.setAutoHide(true);
+
+        // Create the event form
+        VBox eventForm = new VBox();
+        eventForm.setPadding(new Insets(10));
+        eventForm.setSpacing(10);
+
+        // Add form fields for event details (e.g., title, description, time)
+        TextField titleField = new TextField();
+        TextArea descriptionArea = new TextArea();
+        DatePicker datePicker = new DatePicker();
+        TextField timeField = new TextField();
+
+        // Add a "Create Event" button
+        Button createButton = new Button("Create Event");
+        createButton.setOnAction(event -> {
+            // Retrieve the entered event details
+            String title = titleField.getText();
+            String description = descriptionArea.getText();
+            LocalDate eventDate = datePicker.getValue();
+            LocalTime eventTime = LocalTime.parse(timeField.getText());
+
+            // Create a new CalendarEvent object with the entered details
+            CalendarEvent newEvent = new CalendarEvent(title, description, eventDate, eventTime);
+
+            // Add the new event to your data structure or perform any necessary operations
+
+            // Close the popup
+            popup.hide();
+        });
+
+        // Add form fields to the event form
+        eventForm.getChildren().addAll(
+                new Label("Title:"),
+                titleField,
+                new Label("Description:"),
+                descriptionArea,
+                new Label("Date:"),
+                datePicker,
+                new Label("Time:"),
+                timeField,
+                createButton
+        );
+
+        // Set the content of the popup to the event form
+        popup.getContent().add(eventForm);
+
+        // Position the popup relative to the calendar
+        Node source = calendar; // Set the source node for positioning
+        Window window = source.getScene().getWindow();
+        double x = window.getX() + source.localToScene(0, 0).getX() + source.getBoundsInParent().getWidth() / 2;
+        double y = window.getY() + source.localToScene(0, 0).getY() + source.getBoundsInParent().getHeight() / 2;
+        popup.show(window, x, y);
+    }
+
+    private void showEditEventPopup(CalendarEvent eventToEdit) {
+        // Create the popup
+        Popup popup = new Popup();
+        popup.setAutoHide(true);
+
+        // Create the event form
+        VBox eventForm = new VBox(10);
+        eventForm.setStyle("-fx-background-color: white; -fx-padding: 10px;");
+        eventForm.setPrefWidth(300);
+
+        // Create form components
+        TextField titleField = new TextField(eventToEdit.getTitle());
+        TextArea descriptionArea = new TextArea(eventToEdit.getDescription());
+        DatePicker datePicker = new DatePicker(eventToEdit.getDate());
+        TextField timeField = new TextField(eventToEdit.getTime().toString());
+        Button saveButton = new Button("Save Changes");
+
+        // Add event handler for save button
+        saveButton.setOnAction(event -> {
+            String title = titleField.getText();
+            String description = descriptionArea.getText();
+            LocalDate selectedDate = datePicker.getValue();
+            LocalTime selectedTime = LocalTime.parse(timeField.getText());
+
+            // Update the event with new values
+            eventToEdit.setTitle(title);
+            eventToEdit.setDescription(description);
+            eventToEdit.setDate(selectedDate);
+            eventToEdit.setTime(selectedTime);
+
+            // Perform necessary operations with the updated event object
+
+            popup.hide();
+        });
+
+        // Add form components to the event form
+        eventForm.getChildren().addAll(
+                new Label("Title:"),
+                titleField,
+                new Label("Description:"),
+                descriptionArea,
+                new Label("Date:"),
+                datePicker,
+                new Label("Time:"),
+                timeField,
+                saveButton
+        );
+
+        // Set the content of the popup to the event form
+        popup.getContent().add(eventForm);
+
+        // Position the popup relative to the calendar
+        Node source = calendar; // Set the source node for positioning
+        Window window = source.getScene().getWindow();
+        double posX = window.getX() + source.getBoundsInParent().getMinX() + 50;
+        double posY = window.getY() + source.getBoundsInParent().getMinY() + 50;
+        popup.show(window, posX, posY);
+    }
+
+
+
+    private void deleteEvent(CalendarEvent event) {
+        // Delete the event from the eventList and redraw the calendar
+        eventList.remove(event);
+        drawCalendar();
     }
 }
