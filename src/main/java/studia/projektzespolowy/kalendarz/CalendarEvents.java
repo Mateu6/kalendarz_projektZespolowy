@@ -22,6 +22,8 @@ import java.time.ZonedDateTime;
         private  Button addButton;
         private  Button cancelButton;
 
+        /**Constructor for CalendarEvents class.
+         * Initializes and sets up the UI components for adding events.*/
         public CalendarEvents() {
             super();
 
@@ -60,11 +62,13 @@ import java.time.ZonedDateTime;
         }
         private String name;
         private LocalDate date;
-
+        /**Constructor for CalendarEvents class. Initializes a new instance with the specified name and date.*/
         public CalendarEvents(String name, LocalDate date) {
             this.name = name;
             this.date = date;
         }
+        /**Event handler for the "Add" button.
+         *  Retrieves the name and date from the UI components and creates a new CalendarEvents object.*/
         private void addEvent() {
             String name = nameField.getText();
             LocalDate date = datePicker.getValue();

@@ -12,6 +12,11 @@ import java.io.IOException;
 import java.sql.*;
 
 public class DBUtils {
+    /**Method for changing the scene to a specified FXML file.
+     * Creates a new stage and sets its title.
+     * If username and sex are not null, loads the specified FXML file using FXMLLoader and sets it as the scene of the stage.
+     * Otherwise, loads the FXML file directly and assigns it to the root variable.
+     * Sets the new scene on the stage and shows the stage.*/
     public static void changeScene(ActionEvent event, String fxmlFile, String username, String sex) {
         Parent root = null;
         Stage stage = new Stage();
@@ -39,6 +44,11 @@ public class DBUtils {
         stage.show();
     }
 
+    /**Method for signing up a new user.
+     * Establishes a database connection and checks if the user already exists.
+     * If the user exists, shows an error message.
+     * If the user doesn't exist, inserts the new user into the database and changes the scene to the Hello-view.
+     * Closes the database resources at the end.*/
     public static void signUpUser(ActionEvent event, String username, String password, String sex) {
         Connection connection = null;
         PreparedStatement psInsert = null;
@@ -100,6 +110,13 @@ public class DBUtils {
     }
 
 
+    /**Method for logging in a user.
+     * Establishes a database connection and retrieves the user's password and sex.
+     * If the user is not found in the database, shows an error message.
+     * If the user is found, checks if the provided password matches the retrieved password.
+     * If the password matches, changes the scene to loggend.fxml.
+     * If the password doesn't match, shows an error message.
+     * Closes the database resources at the end.*/
     public static void logInUser(ActionEvent event, String username, String password){
         Connection connection = null;
         PreparedStatement preparedStatement = null;

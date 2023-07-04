@@ -6,6 +6,11 @@ import java.sql.DriverManager;
 public class DatabaseConnection {
     public Connection databaseLink;
 
+    /**Method for establishing a database connection.
+     * Configures the database name, user, and password.
+     * Constructs the URL for the database connection.
+     * Attempts to establish a connection using the MySQL driver.
+     * Returns the database connection object.*/
     public Connection getConnection(){
         String databaseName = "login-user";
         String databaseUser = "root";

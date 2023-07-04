@@ -28,6 +28,12 @@ public class SignUpController  implements Initializable {
     }
 
 
+    /**Method called when initializing the controller.
+     * Creates a ToggleGroup for the radio buttons.
+     * Sets the ToggleGroup for rb_woman and rb_man.
+     * Sets rb_woman as the initially selected radio button.
+     * Sets an event handler for the button_signup button that handles sign up logic.
+     * Sets an event handler for the button_log_in button that handles navigation to the login screen.*/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ToggleGroup toggleGroup = new ToggleGroup();
@@ -37,6 +43,11 @@ public class SignUpController  implements Initializable {
         rb_woman.setSelected(true);
 
         button_signup.setOnAction(new EventHandler<ActionEvent>() {
+            /**Event handler for the button_signup button.
+             * Checks if the username and password fields are not empty.
+             * Calls the signUpUser method from the DBUtils class to handle sign up logic.
+             * Displays an error message if any required information is missing.*/
+
             @Override
             public void handle(ActionEvent event) {
                 String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
@@ -51,6 +62,8 @@ public class SignUpController  implements Initializable {
                 }
             }
         });
+        /**Event handler for the button_log_in button.
+         *Calls the changeScene method from the DBUtils class to navigate to the login screen. */
         button_log_in.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
